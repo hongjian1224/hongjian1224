@@ -1,0 +1,248 @@
+// 국순당 링크모음 JS © hw. 2018
+
+
+$(document).ready(function(){
+     
+    // 국순당 로고 클릭 //
+$("h1 a").click(function(e){
+    e.preventDefault();
+    location.href="index.php";
+});/////click//////
+    
+$("#top_menu a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 2:location.href="promotion_cs.php#startCont"; break;
+    }
+});/////click//////
+    
+    
+    ////////////GNB LInk 연결 //////////////////
+    
+    // 회사소개 //
+$(".gnb_company a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 1:location.href="company_story.php"; break;
+        case 2:location.href="company_ceo.php"; break;
+        case 3:location.href="company_history.php"; break;
+        case 4:location.href="company_jhr.php"; break;
+        case 5:location.href="company_location.php"; break;
+    }
+});/////click//////
+    
+    // 제품소개 //
+$(".gnb_product a").click(function(e){
+    e.preventDefault();
+  var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 1:location.href="product_bsj.php"; break;
+        case 2:location.href="product_mj.php"; break;
+        case 3:location.href="product_mak.php"; break;
+        case 4:location.href="product_dam.php"; break;
+        case 5:location.href="product_import.php"; break;
+        case 6:location.href="product_etc.php"; break;
+    }
+});/////click//////
+    
+    // 우리술 이야기 //
+$(".gnb_story a").click(function(e){
+    e.preventDefault();
+  var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 1:location.href="woorisool_edu.php"; break;
+        case 2:location.href="woorisool_recover.php"; break;
+        case 3:location.href="woorisool_special.php"; break;
+    }
+});/////click//////
+    
+//    사회공헌 //
+$(".gnb_cont a").click(function(e){
+    e.preventDefault();
+  var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 1:location.href="contribution.php"; break;
+        case 2:location.href="green.php"; break;
+    }
+});/////click//////
+    
+    //  홍보센터 //
+$(".gnb_promotion a").click(function(e){
+    e.preventDefault();
+      var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 1:location.href="promotion_news.php"; break;
+        case 2:location.href="promotion_ad.php"; break;
+        case 3:location.href="promotion_cs.php"; break;
+    }
+});/////click//////
+    
+    //  인재채용 //
+$(".gnb_hire a").click(function(e){
+    e.preventDefault();
+      var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 1:location.href="recruit_talent.php"; break;
+        case 2:location.href="recruit_careers.php"; break;
+        case 3:location.href="recruit_welfare.php"; break;
+        case 4:location.href="recruit_development.php"; break;
+        case 5:location.href="recruit_faq.php"; break;
+    }
+});/////click/////
+
+    //////////////////// GNB Link연결 여기까지 //////////////////////////////
+    
+    
+        ///// 메인페이지 국순당 소식 link    
+$(".news ul a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+    switch(idx){
+        case 0:location.href="promotion_news.php#startCont"; break;
+        case 1:location.href="promotion_news.php#startCont"; break;
+        case 2:location.href="promotion_news.php#startCont"; break;
+        case 3:location.href="promotion_news.php#startCont"; break;
+    }
+});/////click//////
+    
+ 
+    /////////////// SNB Link 연결 ////////////
+    
+    //// 집 모양 아이콘 클릭 
+$("#snb li:first a").click(function(e){
+    e.preventDefault();
+    location.href="index.php";
+});/////click//////     
+    
+$("#snb .depth1 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="company_story.php#startCont"; break;
+        case 1:location.href="product_bsj.php#startCont"; break;
+        case 2:location.href="woorisool_edu.php#startCont"; break;
+        case 3:location.href="contribution.php#startCont"; break;
+        case 4:location.href="promotion_news.php#startCont"; break;
+        case 5:location.href="recruit_talent.php#startCont"; break;
+    }
+});/////click//////    
+     
+$(".snb_company .depth2 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="company_story.php#startCont"; break;
+        case 1:location.href="company_ceo.php#startCont"; break;
+        case 2:location.href="company_history.php#startCont"; break;
+        case 3:location.href="company_jhr.php#startCont"; break;
+        case 4:location.href="company_location.php#startCont"; break;
+    }
+});/////click//////       
+    
+$(".snb_product .depth2 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="product_bsj.php#startCont"; break;
+        case 1:location.href="product_mj.php#startCont"; break;
+        case 2:location.href="product_mak.php#startCont"; break;
+        case 3:location.href="product_dam.php#startCont"; break;
+        case 4:location.href="product_import.php#startCont"; break;
+        case 5:location.href="product_etc.php#startCont"; break;
+    }
+});/////click//////    
+       
+$(".snb_woorisool .depth2 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="woorisool_edu.php#startCont"; break;
+        case 1:location.href="woorisool_recover.php#startCont"; break;
+        case 2:location.href="woorisool_special.php#startCont"; break;
+    }
+});/////click//////    
+    
+$(".snb_cont .depth2 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="contribution.php#startCont"; break;
+        case 1:location.href="green.php#startCont"; break;
+    }
+});/////click//////    
+    
+$(".snb_promotion .depth2 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="promotion_news.php#startCont"; break;
+        case 1:location.href="promotion_ad.php#startCont"; break;
+        case 2:location.href="promotion_cs.php#startCont"; break;
+    }
+});/////click//////    
+    
+$(".snb_recruit .depth2 a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:location.href="recruit_talent.php#startCont"; break;
+        case 1:location.href="recruit_careers.php#startCont"; break;
+        case 2:location.href="recruit_welfare.php#startCont"; break;
+        case 3:location.href="recruit_development.php#startCont"; break;
+        case 4:location.href="recruit_faq.php#startCont"; break;
+    }  
+});/////click//////    
+    
+    
+    //////////////// footer Link 연결 /////////////////
+    
+$(".f_terms li a").click(function(e){
+    e.preventDefault();
+    var idx = $(this).parent().index();
+    switch(idx){
+        case 2:location.href="promotion_cs.php#startCont"; break;
+        case 4:location.href="company_location.php#startCont"; break;
+    }
+});/////click//////        
+    
+    
+    ///// family site
+$(".f_contact select").change(function(){
+    var val = $(this).val();
+    if(val === "") return false;
+    else {window.open().location.href=val;}
+});/////click//////      
+    
+    ////// sns site
+$(".f_sns li a").click(function(e){
+    e.preventDefault();
+    
+    var idx = $(this).parent().index();
+//       alert(idx);
+    switch(idx){
+        case 0:window.open().location.href="https://ko-kr.facebook.com/kooksoondang/"; break;
+        case 1:window.open().location.href="https://twitter.com/hashtag/%EA%B5%AD%EC%88%9C%EB%8B%B9%EB%A7%89%EA%B1%B8%EB%A6%AC"; break;
+        case 2:window.open().location.href="https://www.instagram.com/explore/tags/%EA%B5%AD%EC%88%9C%EB%8B%B9/"; break;
+        case 3:window.open().location.href="https://www.youtube.com/channel/UCQLyL4EyQMXv01PdebmA-WA"; break;
+    }
+});/////click//////         
+    
+    
+});/////////////JQB////////////
+

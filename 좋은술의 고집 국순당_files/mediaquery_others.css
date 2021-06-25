@@ -1,0 +1,684 @@
+/*! mediaquery.css © hw. 2018 */
+@charset "utf-8";
+
+/* 국순당 메인페이지 미디어 쿼리 */
+
+  /*/////////////////////////*/
+ /* 컨텐츠 900px 양옆 20씩 여백*/
+/*/////////////////////////*/
+
+@media only screen and (max-width:940px) {
+    
+    .container {
+        width: calc(100% - 40px);
+        max-width: 900px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(0, 255, 0, 0.5) 90%),
+                  linear-gradient(90deg, rgba(239, 0, 255, 0.15) 50%, rgba(0, 0, 0, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+        height: 600vh;
+    }
+    .guide {
+        width: calc(100% - 40px);
+        max-width: 940px;
+    }
+    /* 헤더부분 스타일링 */
+    
+    #page-header {
+        position: fixed;
+        top: 0;
+        height: 50px;
+        border-bottom: 1px solid #ff9900;
+        background-color: rgba(255,255,255,.99);
+        z-index: 500;
+    }
+    #page-header .header_guide {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        height: 50px;
+    }
+    #page-header .header_guide h1 {
+        left: 0;
+        top: 10px;
+        width: 62px;
+        height: 30px;
+        margin: 0;
+        background-size: cover;
+    }
+
+    #mobile_btn {
+        display: block;
+    }
+
+    
+     /****** #top_menu styling ******/
+    
+     #top_menu {
+        left: -20px; 
+        top: -100vh; /*119px이 되어야 모바일화면에서 보임! 스크립트로 제어!*/
+        width: calc(100% + 40px);
+        height:41px;
+        z-index: 520;
+        border-top: 1px solid #666;
+        opacity: 0; /* 스크립트로 제어*/
+        transition: opacity 0.1s ease-in-out 0.05s
+    }
+    #top_menu ul {
+        height: 100%;
+    }
+    #top_menu li {
+        box-sizing: border-box;
+        width: 33.333333%;
+        text-align: center;
+        line-height: 27px;
+        height: 100%;
+    }
+    #top_menu li + li {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    #top_menu li + li::before {
+        height: 39px;
+        top: 0;
+        background-color: #666;
+    }
+    #top_menu li a {
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        height: 95%;
+        line-height: 27px;
+        transition: all 0.15s ease-in;
+    }
+    #top_menu li:hover a {
+        color:#fff;
+        background-color: #ff6600;
+    }
+    
+    
+      /*****************/
+     /* GNB 네비게이션  */
+    /*****************/
+    .gnb_bg {
+        display: none;
+    }
+    #gnb {
+        top: -100vh; /*159px*/
+        left: -20px;
+        width: calc(100% + 40px);
+        height: 100vh;
+        padding-top: 0;
+        border-top: 1px solid #666;
+        box-sizing: border-box;
+        z-index: 520;
+        opacity: 0; /* 스크립트로 제어*/
+        transition: opacity 0.1s ease-in-out 0.05s
+    }
+    #gnb:hover {
+        height: 100vh;
+    }
+    #gnb dl {
+        float: none;
+        width: 100% !important;
+        height: 60px;
+        text-align: left;
+        border-bottom: 1px solid #666;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    #gnb dl dt {
+        position: relative;
+        padding-bottom: 0;
+        padding-left: 20px;
+        height: 60px;
+        line-height: 2.5;
+    }
+    #gnb dl dt span {
+        width: calc(100% - 40px);
+        height: 100%;
+    }
+    #gnb dl dt span  a {
+        display: block;
+        color: #ccc; 
+    }
+    #gnb dl dt span a:after, 
+    #gnb dl dt span a::after {
+        display: none;
+    }
+    #gnb dl:hover dt span a::after,
+    #gnb dl:focus dt span a::after {
+        transform: none;
+    }
+    
+    /****** GNB 하위메뉴(dd) styling ******/
+    
+    #gnb dl dd {
+        padding-left: 40px;
+        height: 35px;
+        line-height: 35px;
+        background-color: #666;
+    }
+    #gnb dl dd a {
+        color: #ccc;
+    }
+    #gnb dl dd:hover a {
+        color: #fff;
+    }
+    
+      /************************/
+     /*      main styling    */
+    /************************/
+    #startCont {
+/*        outline: 1px solid red;*/
+    }
+    
+    #page-main {
+       margin-top: 50px;
+    }
+    .page_visual {
+        height: 280px;
+    }
+    .cont_nav {
+        height: 60px;
+    }
+    .cont_nav #snb > li:first-child {
+        width: 60px;
+        height: 60px;
+    }
+    .cont_nav #snb > .depth1,
+    .cont_nav #snb > .depth2 {
+        width: calc(50% - 30px);
+        height: 60px;
+    }
+    .cont_nav #snb > .depth1 > span,
+    .cont_nav #snb > .depth2 > span {
+        line-height: 3.75;
+    }
+    
+    
+    .cont_all {
+        padding-top: 143px;
+    }
+    .cont_all h3 {
+        font-size: 35px;
+        font-size: 3.5rem;
+        line-height: 1.2288;
+    }
+    .inner_title {
+        margin-bottom: 20px;
+    }
+    .sub_title {
+        font-size: 28px;
+        font-size: 2.8rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+    .sub_title2 {
+        font-size: 22px;
+        font-size: 2.2rem;
+    }
+    
+    
+    /* 상단 탭 스타일링 */
+
+    .tab_btn {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        height: 60px;
+    } 
+    .tab_btn ul {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+    .tab_btn ul > li {
+        font-size: 18px;
+        line-height: 3.333333;
+    }
+    .tab_btn li.select_tab {
+        color: #fff !important;
+        background-color: #ff6600;
+    }
+    
+
+    /* 페이지별 개별 백그라운드 설정 CSS */
+    .c_story {  /* 회사소개 > 국순당 이야기  */
+        background: url("../images/company/bg_story.jpg") no-repeat right 30px/50%;
+    }
+    .c_ceo {  /* 회사소개 > 대표이사 인사말  */
+        background: url("../images/company/bg_ceo_2.jpg") no-repeat right 125px/300px 400px;
+    }
+    .w_recover {  /* 우리술 이야기 > 우리술 복원사업  */
+        background: url("../images/woorisool/bg_wrs_recover.jpg") no-repeat right 0/50%;
+    }
+
+    
+    /* 회사소개 > 주향로 CSS */
+    .call {
+        padding: 10px 0 25px;
+        margin-top: 0;
+        height: auto;
+        margin-top: 30px;
+    }
+    .call dl,
+    .call .go_site {
+        float: none;
+    }
+    .call dl {
+        width: 100%;
+        height: auto;
+        padding-top: 0;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .call dl dt {
+        float: none;
+        line-height: 1.395348;
+        padding-left: 74px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .call dl dt::after {
+        width: 60px;
+        height: 60px;
+        top: 0;
+        left: calc(50% - 110px);
+        background-position: -370px -50px;
+    } 
+ 
+    .call .go_site {
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* 회사소개 > 걸어온 길 CSS */
+    .tab_title {
+        font-size: 28px;
+        font-size: 2.8rem;
+        line-height: 1.071428;
+        margin-bottom: 21px;
+    }
+    .show_history dl dt {
+        padding: 0 0 0 15px;
+        font-size: 28px;
+        font-size: 2.8rem;
+    }
+    .show_history dl dt span {
+        top: 20px;
+        right: 0;
+    }
+    .show_history dl dd span {
+        margin-left: 53px;
+    }
+    
+    /* 국순당 술의  특징 > 설갱미 소개 > 설갱미란? */
+    
+    .sub_special h4 {
+        margin-bottom: 7px;
+        font-weight: 400;
+    }
+    .wrs_special01 {
+        background: none;
+        margin-bottom: 30px;
+    }
+    .wrs_special01 div {
+        width: 100%;
+    }
+    
+    .wrs_special03 {
+        background:none;
+    }
+    .wrs_special03 div {
+        float: none;
+        width: 100%;
+    }
+    
+    .wrs_special05,
+    .wrs_special06 {
+        margin-bottom: 30px;
+    }
+    .wrs_special05 .sub_p,
+    .wrs_special06 .sub_p,
+    .wrs_special07 .sub_p {
+        float: none;
+        width: 100%;
+    }
+    .wrs_special05 .sub_img,
+    .wrs_special06 .sub_img,
+    .wrs_special07 .sub_img {
+        float: none;
+        width: 100%;
+        max-width: 900px;
+        margin-top: 20px;
+    }
+    
+    /* 사회공헌 CSS */
+    .c_guide1, 
+    .c_guide2, 
+    .c_guide3 {
+        margin-bottom: 30px;
+    }
+    .c_guide1 p, 
+    .c_guide2 p, 
+    .c_guide3 p {
+        width: calc(100% - 180px);
+    }
+    .c_guide1 .cont_bg, 
+    .c_guide2 .cont_bg, 
+    .c_guide3 .cont_bg {
+        top: 33px;
+        width: 160px;
+    }
+    .c_guide1 .cont_bg {
+        max-height: 300px;
+        background: url("../images/contribution/cont_01_mob.jpg") no-repeat center/contain;
+    }
+    .c_guide1 .cont_bg::before {
+        padding-top: 169.194313%;
+    }
+    .c_guide2 .cont_bg {
+        max-height: 250px;
+        background: url("../images/contribution/cont_02_mob.jpg") no-repeat center/contain;
+    }
+    .c_guide2 .cont_bg::before {
+        padding-top: 137.440758%;
+    }
+    .c_guide3 .cont_bg {
+        max-height: 200px;
+        background-size: contain;
+        z-index: -1;
+    }
+    .c_guide3 .sub_p:nth-of-type(2),
+    .c_guide3 .sub_p:nth-of-type(3) {
+        width: 100%;
+    }
+    
+    /* 녹색기업 CSS */
+    .tale .sub_p {
+        line-height: 1.35;
+    }
+    
+    
+    
+    /* 홍보센터 > 고객상담실 */
+    .cs {
+        padding: 15px 15% 25px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    .cs dl {
+        width: auto;
+        height: auto;
+        padding-left: 74px;
+        margin-top: 0;
+        float: none;
+    }
+    .cs dl + dl {
+        margin-top: 20px;
+    }
+    .cs dl::after {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        background-position: -370px -50px;
+    }
+    .cs dl:last-child::after {
+        background-position: -432px -74px;
+    }
+    .cs dl:first-child dd {
+        font-size: 28px;
+        font-size: 2.8rem;
+        line-height: 1.1;
+    }
+    .cs dd a {
+        padding: 0.571428em 0 0.428571em 0.535714em;
+    }
+    
+    
+    /* 인재채용 > 인재상 */
+    .rcrt_talent {
+        width: 100%;
+        height: 460px;
+        background-size: 45%; 
+        background-position: center;
+    }
+    .rcrt_talent li:nth-child(2),
+    .rcrt_talent li:nth-child(5) {
+        top: 130px;
+    }
+    .rcrt_talent li:nth-child(3),
+    .rcrt_talent li:nth-child(6) {
+        top: 280px;
+    }
+    
+    
+    
+    
+    
+    
+    
+      /************************/
+     /*    footer styling   */
+    /************************/
+
+    #page-footer .f_guide {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        padding: 30px 0 36px;
+    }
+    
+    /* footer 상단 왼쪽 스타일링 */
+    .f_info {
+        float: none;
+        text-align: center;
+    }
+    .f_info .f_logo {
+        width: 124px;
+        height: 60px;
+        margin: 0 auto 30px;
+    }
+    .f_info ul {
+       margin: 0 auto 15px;
+        widows: 100%;
+        max-width: 395px;
+    }
+    .f_info ul li:last-child {
+        display: none;
+    }
+    .f_info ul li + li {
+        margin-left: 5%;
+    }
+    .f_info address {
+        width: 100%;
+        top: 128px
+    }
+    
+    /* footer 상단 오른쪽 스타일링 */
+    .f_contact {
+        float: none;
+        max-width: 540px;
+        margin: 30px auto 0;
+    }
+    
+    /* 국순당 패밀리사이트 바로가기 스타일링 */
+    
+    .f_contact .f_site {
+        width: 50%;
+        top: -191px;
+        left: 0;
+    }
+
+    /* sns 바로가기 버튼 스타일링*/
+    .f_contact .f_sns {
+         margin-bottom: 0;
+        margin-top: 0;
+        float: right;
+    }
+    .f_contact .f_sns li + li {
+        margin-left: 10px;
+    }
+    
+    /* footer 맨 마지막 */
+    #page-footer .copy_box {
+        padding: 19px 0 30px;
+        border-top: 1px solid #666;
+        text-align: center;
+    }    
+    
+}  /*///////////media 940px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+
+  /*/////////////////////////*/
+ /* 컨텐츠 600px 양옆 20씩 여백*/
+/*/////////////////////////*/
+
+@media only screen and (max-width:640px) {
+    
+    .container {
+        max-width: 600px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(255, 0, 255, 0.9) 90%),
+                  linear-gradient(90deg, rgba(0, 0, 0, 0.08) 50%, rgba(255, 255, 0, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+    }
+
+    #page-header .header_guide {
+        max-width: 600px;
+    }
+    #page-main section h3,
+    #page-main .main_guide3 .width_guide h3 {
+        margin-bottom: 20px;
+    }
+    
+      /************************/
+     /*    footer styling   */
+    /************************/
+    
+    #page-footer .f_guide {
+        max-width: 600px;
+    }
+    
+    .f_info address {
+        display: none;
+    }
+    
+    /* footer 상단 오른쪽 스타일링 */
+    
+    .f_contact {
+        margin-top: 25px;
+    }
+
+}  /*///////////media 640px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+   /*/////////////////////////*/
+  /* 컨텐츠 480px 양옆 15씩 여백*/
+ /*/////////////////////////*/
+
+@media only screen and (max-width:480px) {
+    
+    .container {
+        width: calc(100% - 30px);
+        max-width: 450px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(0, 255, 0, 0.9) 90%),
+                  linear-gradient(90deg, rgba(239, 64, 15, 0.15) 50%, rgba(0, 255, 255, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+    }
+
+    
+    /* 헤더부분 스타일링 */
+    
+    #page-header .header_guide {
+        width: calc(100% - 30px);
+        max-width: 450px;
+    }
+    .mobile_btn {
+        right: 15px !important;
+    }
+    
+     /************************/
+     /*    footer styling   */
+    /************************/
+
+    #page-footer {
+        margin-top:0;
+    }
+    
+    #page-footer .f_guide {
+        width: calc(100% - 30px);
+        max-width: 450px;
+        height: 240px;
+        padding: 20px 0 40px;
+    }
+    /* footer 상단 왼쪽 스타일링 */
+    .f_info {
+        height: 130px;
+    }
+    .f_info .f_logo {
+        height: 40px;
+        width: 83px;
+    }
+    
+    .f_info ul {
+        margin: -10px auto 15px;
+        width: 210px;
+    }
+    .f_info ul li {
+        text-align: center;
+    }
+    .f_info ul li:nth-child(3) {
+        padding-left: 20px;
+    }
+    .f_info ul li:nth-child(3),
+    .f_info ul li:nth-child(4) {
+        margin-top: 7px;
+    }
+    
+    
+    /* footer 상단 오른쪽 스타일링 */
+    .f_contact {
+        position: relative;
+        top: -25px;
+        width: 100%;
+        height: 120px;
+    }
+    .f_contact .f_site {
+        width: 100%;
+    }
+    
+    /* sns 바로가기 버튼 스타일링*/
+
+    .f_contact .f_sns {
+        float: none;
+        position: absolute;
+        top:  60px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 198px;
+    }
+    
+     /* footer 맨 마지막 */
+    #page-footer .copy_box {
+        box-sizing: border-box;
+        padding: 21px 0 21px;
+        border-top: 1px solid #666;
+    }
+    
+}  /*///////////media 480px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+

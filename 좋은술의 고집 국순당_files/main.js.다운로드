@@ -1,0 +1,895 @@
+// 국순당 메인 페이지 JS © hw. 2018
+
+
+////////////////// 전역변수 구역 //////////////////////////////
+
+var snum = 0;   // 슬라이드 번호
+var bullet;   // 블릿선택
+var play, stop; // 배너 자동재생 버튼
+var moveUl, moveLi; // 국순당 제품소개 선택된 ul, 선택된 ul의 제품들(li)의 집합
+var ws = window.innerWidth;
+// console.log(ws);
+
+
+// 모바일여부 전역변수
+var mobileS = 0; // 0 = 모바일, 1 = 타블렛, 2 = 데스크탑
+if (ws <= 640) {mobileS = 0; }
+else if(ws>640&&ws<=940) {mobileS=1;}
+else mobileS=2;
+// console.log(mobileS);
+
+
+var mGnb,topMenu,Logo,mSet; // 모바일 GNB메뉴용 변수
+var mDT,mDL,mDTA; // 모바일용 GNB DT, DL
+var hamOpen; // 모바일 햄버거버튼 변수
+
+////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////////
+///////////////////// html 로딩 후 실행구역 ////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+
+window.addEventListener("load", function() {
+    
+    
+    ////////////배너(#main visual) 이동 버튼 클릭시 배너 순서대로 보이기/숨기기 ////////////
+    
+    document.querySelector(".ab1").onclick=function()  {
+        
+//        alert("왼쪽");
+        goSlide(0, 0);
+        return false;
+        
+    }; ////// 슬라이드 왼쪽 버튼 클릭시 이미지 넘어가는 이벤트!!////////
+    document.querySelector(".ab2").onclick=function()  {
+        
+//        alert("오른쪽");
+        goSlide(1, 0);
+        return false;
+    }; ////// 슬라이드 오른쪽 버튼 클릭시 이미지 넘어가는 이벤트!!////////
+    
+    
+    ///////////////////블릿버튼 클릭시 슬라이드 이동함수 호출하기 //////////////////////
+    
+    bullet = document.querySelectorAll(".bullet_box a");
+    
+    bullet.item(0).onclick=function() {
+     //   alert("1번이야");
+        goSlide(2, 0); // 2-블릿직접클릭 넘기는 번호, 0-순번
+        return false;
+    };  // 1번 블릿////////////////////
+    
+    bullet.item(1).onclick=function() {
+      //  alert("2번이야");
+        goSlide(2, 1); // 2-블릿직접클릭 넘기는 번호, 1-순번
+        return false;
+    };  // 2번 블릿////////////////////
+    
+    bullet.item(2).onclick=function() {
+       // alert("3번이야");
+        goSlide(2, 2); // 2-블릿직접클릭 넘기는 번호, 2-순번
+        return false;
+    };  // 3번 블릿////////////////////
+    
+    bullet.item(3).onclick=function() {
+      //  alert("4번이야");
+        goSlide(2, 3); // 2-블릿직접클릭 넘기는 번호, 3-순번
+        return false;
+    };  // 4번 블릿////////////////////
+    
+    bullet.item(4).onclick=function() {
+       // alert("5번이야");
+        goSlide(2, 4); // 2-블릿직접클릭 넘기는 번호, 4-순번
+        return false;
+    };  // 5번 블릿////////////////////
+    
+    bullet.item(5).onclick=function() {
+       // alert("6번이야");
+        goSlide(2, 5); // 2-블릿직접클릭 넘기는 번호, 5-순번
+        return false;
+    };  // 6번 블릿////////////////////
+    
+    //////////////블릿버튼 클릭시 슬라이드 이동함수 호출하기 끝!!!!////////////////
+    //////////////////////////////////////////////////////////////////////////
+    
+    
+    /////////////////배너 자동재생 버튼 ///////////
+    play=document.querySelector(".autoplay_box .play");
+    stop=document.querySelector(".autoplay_box .stop");
+    
+    play.onclick=function() {
+        autoSlide(1);
+        showPSBtn(1);
+        return false;
+    }
+    stop.onclick=function() {
+        autoSlide(0);
+        showPSBtn(0);
+        return false;
+    }
+    
+    
+    
+   ///////// 제품리스트 버튼 클릭 시 제품이미지 순서대로 보이기/////////////////////
+    
+    // [1] 국순당 제품소개 왼쪽 제품이름(탭버튼) 누르면 오른쪽에 이미지 리스트 나오게 하기
+    
+    // 1. 이벤트 대상 선정: .product_list li a
+    var plist = document.querySelectorAll(".product_list li a");
+    // console.log("버튼종류갯수: "+plist.length);
+    var move = document.querySelectorAll(".selected_pslide li");
+    
+     
+
+/////////////////// 가로사이즈 체크 후 모바일, 타블렛, 데스크탑 셋팅!////////////////////
+    
+    if(mobileS===0) { //////////////  모바일!!!!!
+        
+        
+        /***********모바일에서 햄버거버튼 토글기능 구현***********/
+        
+        hamOpen=0; // 토글함수 상태값(0-햄버거, 1-X모양 닫기버튼)
+        
+        document.querySelector("#mobile_btn").onclick=function() {
+            
+            mGnb=document.getElementById("gnb");
+            topMenu=document.getElementById("top_menu");
+            mLogo=document.querySelector("#mobile .mobile_logo");
+            mSet=document.getElementById("mobile");
+        
+            
+            if(hamOpen===0) { // 햄버거모양 버튼일 때
+                
+                this.style.backgroundPosition="-28px 0";
+                mGnb.style.top="159px";
+                mGnb.style.opacity="1";
+                topMenu.style.top="119px";
+                topMenu.style.opacity="1";
+                mLogo.style.opacity="1";
+                mSet.style.left="0";
+                
+                hamOpen=1; // X모양 닫기버튼 상태로 변경!
+            }/////////// if문/////////////
+            
+            else if(hamOpen===1) { // X모양 닫기버튼일때 
+                
+                this.style.backgroundPosition="0 0";
+                mGnb.style.top="-100vh";
+                mGnb.style.opacity="0";
+                topMenu.style.top="-100vh";
+                topMenu.style.opacity="0";
+                mLogo.style.opacity="0";
+                mSet.style.left="-100%";
+                
+                hamOpen=0; // 햄버거모양 버튼상태로 변경!!
+            }//////////else if문////////////////
+            
+        }/////// click ////////////////////////////////
+    
+        
+        
+         /***********모바일에서 GNB메뉴 dt누르면 dd 나오게 하기***********/
+        
+       
+        mDL = document.querySelectorAll("#gnb dl");
+        mDT = document.querySelectorAll("#gnb dt");
+        
+        
+        mDT.item(0).onclick=function() {
+          
+            setOpen(0);
+            chgColor(0);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(1).onclick=function() {
+            setOpen(1);
+            chgColor(1);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(2).onclick=function() {
+            setOpen(2);
+            chgColor(2);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(3).onclick=function() {
+            setOpen(3);
+            chgColor(3);
+            return false;
+           
+        }////////// click////////////////
+        
+        mDT.item(4).onclick=function() {
+            setOpen(4);
+            chgColor(4);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(5).onclick=function() {
+            setOpen(5);
+            chgColor(5);
+            return false;
+            
+        }////////// click////////////////
+
+        
+        
+        /************국순당 제품리스트 모바일버전 !!!!***********/
+        
+       document.querySelector(".plist_next").style.display="block";
+       document.querySelector(".plist_prev").style.display="block";
+    
+        // 국순당 제품리스트 오른쪽 버튼을 클릭할 때 이벤트 설정하기
+        document.querySelector(".plist_next").onclick=function() {
+
+            // alert("오른쪽 버튼");
+            oneStepSlide2(1);  // 오른쪽은 1번을 값으로 보냄
+            return false;
+        
+        }; ////////////////오른쪽 버튼 클릭시 구현부분//////////////////
+    
+        // 제품리스트 왼쪽 버튼을 클릭할 때 이벤트 설정하기
+        document.querySelector(".plist_prev").onclick=function() {
+
+         //   alert("왼쪽버튼");
+            oneStepSlide2(0)  // 왼쪽은 0을 보냄
+            return false;
+        
+        }//////////////// 왼쪽 버튼 클릭시 구현부분/////////////////////
+        
+        ////// 국순당 제품소개 제품 4개 미만일 때 양쪽 화살표 나오게 하기(모바일) !!
+        for(var j=0;j<plist.length;j++){	
+            var pcnt2=document.querySelectorAll(".plist_guide>ul").item(j)
+            .querySelectorAll("li").length;//선택된 product 리스트별 li개수 가져오기
+            plist.item(j).onclick=setPlist2(pcnt2,j);//pcnt-li개수, j는 순번
+        }////////////////////// for ///////////////////
+         
+    }////////if문(가로사이즈가 640미만일 경우(모바일)////////////////
+    ////////////////////////////////////////////////////////////
+    
+    else if(mobileS=1) {  // 타블렛
+        
+        
+        /***********모바일에서 햄버거버튼 토글기능 구현***********/
+        
+        hamOpen=0; // 토글함수 상태값(0-햄버거, 1-X모양 닫기버튼)
+        
+        document.querySelector("#mobile_btn").onclick=function() {
+            
+            mGnb=document.getElementById("gnb");
+            topMenu=document.getElementById("top_menu");
+            mLogo=document.querySelector("#mobile .mobile_logo");
+            mSet=document.getElementById("mobile");
+            
+            if(hamOpen===0) { // 햄버거모양 버튼일 때
+                
+                this.style.backgroundPosition="-28px 0";
+                mGnb.style.top="159px";
+                mGnb.style.opacity="1";
+                topMenu.style.top="119px";
+                topMenu.style.opacity="1";
+                mLogo.style.opacity="1";
+                mSet.style.left="0";
+                
+                hamOpen=1; // X모양 닫기버튼 상태로 변경!
+            }/////////// if문/////////////
+            
+            else if(hamOpen===1) { // X모양 닫기버튼일때 
+                
+                this.style.backgroundPosition="0 0";
+                mGnb.style.top="-100vh";
+                mGnb.style.opacity="0";
+                topMenu.style.top="-100vh";
+                topMenu.style.opacity="0";
+                mLogo.style.opacity="0";
+                mSet.style.left="-100%";
+                
+                hamOpen=0; // 햄버거모양 버튼상태로 변경!!
+            }//////////else if문////////////////
+            
+        }/////// click ////////////////////////////////
+        
+    
+        
+         /***********모바일에서 GNB메뉴 dt누르면 dd 나오게 하기***********/
+        
+       
+        mDT = document.querySelectorAll("#gnb dt");
+        mDL = document.querySelectorAll("#gnb dl");
+        
+    
+        mDT.item(0).onclick=function() {
+          
+            setOpen(0);
+            chgColor(0);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(1).onclick=function() {
+            setOpen(1);
+            chgColor(1);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(2).onclick=function() {
+            setOpen(2);
+            chgColor(2);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(3).onclick=function() {
+            setOpen(3);
+            chgColor(3);
+            return false;
+           
+        }////////// click////////////////
+        
+        mDT.item(4).onclick=function() {
+            setOpen(4);
+            chgColor(4);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(5).onclick=function() {
+            setOpen(5);
+            chgColor(5);
+            return false;
+            
+        }////////// click////////////////
+
+        
+        
+        
+         // [1] 제품리스트 오른쪽 버튼을 클릭할 때 이벤트 설정하기
+        document.querySelector(".plist_next").onclick=function() {
+
+            // alert("오른쪽 버튼");
+            oneStepSlide(1);  // 오른쪽은 1번을 값으로 보냄
+            return false;
+
+        }; ////////////////오른쪽 버튼 클릭시 구현부분//////////////////
+
+        // 제품리스트 왼쪽 버튼을 클릭할 떄 이벤트 설정하기
+        document.querySelector(".plist_prev").onclick=function() {
+
+         //   alert("왼쪽버튼");
+            oneStepSlide(0)  // 왼쪽은 0을 보냄
+            return false;
+        
+        }//////////////// 왼쪽 버튼 클릭시 구현부분/////////////////////
+        
+        ////// 국순당 제품소개 제품 5개 미만일 때 양쪽 화살표 나오게 하기(타블렛) !!
+        	for(var i=0;i<plist.length;i++){	
+                var pcnt=document.querySelectorAll(".plist_guide>ul").item(i)
+                .querySelectorAll("li").length;//선택된 product 리스트별 li개수 가져오기
+                plist.item(i).onclick=setPlist(pcnt,i);//pcnt-li개수, i는 순번
+            }////////////////////// for ///////////////////
+        
+    }/////////////else if(타블렛)/////////////////////
+    ///////////////////////////////////////////////////////////////
+        
+    
+    
+    else { //가로사이즈가 940이 넘을 경우(데스크탑)
+        
+ 
+         // [1] 제품리스트 오른쪽 버튼을 클릭할 때 이벤트 설정하기
+        document.querySelector(".plist_next").onclick=function() {
+
+            // alert("오른쪽 버튼");
+            oneStepSlide(1);  // 오른쪽은 1번을 값으로 보냄
+            return false;
+
+        }; ////////////////오른쪽 버튼 클릭시 구현부분//////////////////
+
+        // 제품리스트 왼쪽 버튼을 클릭할 떄 이벤트 설정하기
+        document.querySelector(".plist_prev").onclick=function() {
+
+         //   alert("왼쪽버튼");
+            oneStepSlide(0)  // 왼쪽은 0을 보냄
+            return false;
+        
+        }//////////////// 왼쪽 버튼 클릭시 구현부분/////////////////////
+        
+        //////국순당 제품소개 제품 5개 미만일 때 양쪽 화살표 나오게 하기(데스크탑)!!
+        	for(var i=0;i<plist.length;i++){	
+                var pcnt=document.querySelectorAll(".plist_guide>ul").item(i)
+                .querySelectorAll("li").length;//선택된 product 리스트별 li개수 가져오기
+                plist.item(i).onclick=setPlist(pcnt,i);//pcnt-li개수, i는 순번
+            }////////////////////// for ///////////////////
+        
+
+    }////////////else문(가로사이즈가 940이 넘을 경우(데스크탑)///////////////
+    ////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    /////////////////sns 페이스북, 트위터 탭 구현하기 //////////////////////////
+
+   // 1. 이벤트 대상 선정: .tab_btns li
+    var tmenu = document.querySelectorAll(".tab_btns li");
+//    console.log("sns 탭버튼 갯수: "+tmenu.length);
+    
+    // 페이스북 클릭할 때!
+    tmenu.item(0).onclick=function() {
+        //alert("페이스북 고고싱");
+        chgTab(0);
+    }
+    
+    // 트위터 클릭할 때!
+    tmenu.item(1).onclick=function() {
+      // alert("트위터 고고싱");
+        chgTab(1);
+    }
+    
+   ///////////////////////////////////////////////////////////////////////////
+
+    
+  autoSlide(1); // main visual 자동슬라이드 호출!!!!
+    
+}); ////////////////////end load area ///////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+
+$(document).ready(function(){
+    /// POPUP 띄우기!!
+    $(".pop-close-btn").bind("click", function(e){
+        e.preventDefault();
+        console.log($.cookie("pop2"));
+        if($(".pop-day").is(":checked")){
+            $.cookie("pop2","OK",{expires: 1});
+            console.log("쿠키셋팅!!!");
+           }/////////////if////////////
+        
+        $("#first-popUP").fadeOut(200);
+        
+    });/////////////////bind//////////////
+    
+    
+});///////JQB///////////////////////
+
+
+
+function chgColor(cnum) {
+    
+    mDT = document.querySelectorAll("#gnb dt");
+    mDTA = document.querySelectorAll("#gnb dt a");
+    
+     // 3. color값 초기화 해주기
+    for(j=0; j<mDT.length; j++) {
+         mDTA.item(j).style.color="#ccc";
+         
+    }/////////for//////////////////
+    
+     mDTA.item(cnum).style.color="#ff6600";
+}
+
+
+/*////////////////////////////
+	함수: setPlist
+	기능: plist 셋팅함
+*//////////////////////////////
+
+function setPlist(pcnt,seq){
+	return function(){		
+	   chkPnum(pcnt);
+		pTab(seq);
+		return false;
+	};
+}///// setPlist 함수 ////////////
+
+
+/*////////////////////////////
+	함수: setPlist2
+	기능: plist 셋팅함
+*//////////////////////////////
+
+function setPlist2(pcnt2,seq2){
+	return function(){		
+	   chkPnum2(pcnt2);
+		pTab(seq2);
+		return false;
+	};
+}///// setPlist2 함수 ////////////
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////
+
+함수명: goSlide
+기능: 배너(#slide)의 순번을 따라서 이전 혹은 다음 li의 class변경함으로 opacity를 1로 보이게 하여 배너를 전환시킨다.
+
+*////////////////////////////////////////////////////////////////////////////////////////////
+
+var psts=0; // 메인슬라이드 광클금지 전역변수(0-사용안함, 1-사용중)
+
+function goSlide(dir, seq) { 
+    
+    ///////////////// 광클금지설정!//////////////////////////
+    if(psts===1) {return false;} // 여기에서 돌아감! 하단코드 실행안함!!
+    psts=1; // 막기상태로 변경! (문잠금)
+    /////////////////////////////////////////////////////////
+    
+    // 파라미터 변수
+    // dir- 이동방향 (0-왼쪽, 1-오른쪽, 2-불릿 직접클릭)
+    // seq- 직접 전달할 순번
+   
+//   1. 대상선정: #slide > li
+    var slider = document.querySelectorAll("#slide > li");
+    // console.log("li갯수: "+slider.length);
+    
+//    1. 대상선정: .bullet_box a
+//      load구역에서도 같은 값이 사용되어 전역변수로 맨 위에 선언해 두었음!!!!
+//    console.log("블릿의 개수: "+bullet.length);
+    
+//   2. 변경내용: 대상의 현재순번의 li에 class ".show_slide" 를 준다.
+    if(dir===1) { // 슬라이드 오른쪽 화살표 클릭으로 슬라이드 이미지 이동
+        snum++;
+        if(snum===6){snum=0}  // 한계값
+
+    } // if문 
+    else if(dir===0) {  // 슬라이드 왼쪽 화살표 클릭으로 슬라이드 이미지 이동 
+        snum--;
+        if(snum===-1){snum=5}  // 한계값
+    }// else if문 
+    
+ //   2. 변경내용: 대상의 현재순번의 a에 class ".bullet_on" 을 준다.
+    else if(dir===2) {  // 블릿 직접 클릭으로 슬라이드 이미지 이동
+//        console.log("직접셋팅!!");
+        snum=seq;
+    }// else if문(bullet 버튼)
+    
+    
+    for(var i=0; i<slider.length; i++) {
+        
+        // slide li에 class를 지워주는 초기화
+        slider.item(i).setAttribute("class", "");
+        
+        // bullet_box a에 class를 지워주는 초기화
+        bullet.item(i).setAttribute("class", "");
+        
+    } // for문/////////
+    
+    
+    // 해당 슬라이드 li에 class 주기 
+    slider.item(snum).setAttribute("class", "show_slide");
+    
+    // 블릿버튼 해당슬라이드와 같은 순번에 이미지 변경하기
+    // 2. 블릿 스타일 변경하기 -> class 추가하기 
+    bullet.item(snum).setAttribute("class", "bullet_on");
+    
+    
+    ///////////////////// 잠금장치 풀기설정 /////////////////
+    setTimeout(function() {psts=0;}, 1200);
+    //////////////////////////////////////////////////////////
+    
+} ////////////// goSlide 함수 (main slide용) //////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+
+/*////////////////////////////////////////////////
+   함수명 : autoSlide
+   기능 : 자동으로 설정된 시간간격으로 
+         이미지 넘기기 함수를 호출하거나 멈추기를 한다.
+*////////////////////////////////////////////////
+
+var autocall=""; // setInterval용 전역변수
+
+function autoSlide(gubun) { // 0-멈춤, 1시작
+   // alert("자동"+gubun);
+    
+    if(gubun===1&&autocall==="") { // 시작버튼을 눌렀을 때!
+                
+        autocall = setInterval("goSlide(1, 0)", 5000);
+
+    }/////////////if문//////////////////
+    else if(gubun===0) { // 멈춤버튼을 눌렀을 때!
+         
+        clearInterval(autocall);
+        autocall=""; // 초기화
+      
+    } /////////// else if문
+    
+}//////////autoSlide 함수///////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+/*/////////////////////////////////////////////////
+
+함수명: showPSBtn
+기능: 메인슬라이드 자동재생될때 멈춤버튼 보이게하고, 
+      메인슬라이드 멈춰있을때 재생버튼 보이게 하기 
+
+*//////////////////////////////////////////////////
+
+
+function showPSBtn(moveChk) { //moveChk 0 - stop버튼 눌러서 멈춰있을 때/ 1- play 버튼 눌러서 재생될떄 
+//    alert(moveChk);
+    if(moveChk===0) { // stop 버튼 눌러서 슬라이드 멈춰있을 때!
+        stop.style.display="none";
+        play.style.display="block";
+    }//////////////// if문///////////////////
+    else if(moveChk===1) { // play버튼 눌러서 슬라이드 재생되고 있을 때!!!
+        play.style.display="none";
+        stop.style.display="block";
+    }///////// else if문///////////////
+    
+    
+}///////////////showPSBtn 함수////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+/*////////////////////////////////////////
+
+함수명: pTab
+기능: 메인페이지 왼쪽 제품이름 리스트 버튼 누르면 오른쪽에 제품이미지 리스트 나오게 하기!!!
+
+*/////////////////////////////////////////
+
+function pTab(pnum) { // pnum-구분번호(탭순번)
+//    alert("탭 자바스크립트 짱난다 "+pnum);
+//    1. 변경대상선정a - .product_list li
+//    1. 변경대산선정b - .product_slide .p_slide
+    
+    var ptabBtn = document.querySelectorAll(".product_list li");
+    var ptabCont = document.querySelectorAll(".product_slide ul");
+    
+    // 3. class 초기화 해주기
+    for (j=0; j<ptabBtn.length; j++) {
+        ptabBtn.item(j).setAttribute("class", "");  // 탭버튼 초기화
+        ptabCont.item(j).setAttribute("class", ""); // 탭컨텐츠 초기화
+    }//////////////for문
+    
+    // 2. 변경대상 class 넣기 
+    ptabBtn.item(pnum).setAttribute("class", "on");
+    ptabCont.item(pnum).setAttribute("class", "selected_pslide");
+    
+}///////////////pTab 함수////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+/*//////////////////////////////////////////////////////
+
+함수명: chkPnum
+기능: 메인페이지 국순당 제품소개 제품 5개 미만시 양쪽 화살표 없애기
+
+*///////////////////////////////////////////////////////
+
+    function chkPnum(psnum) { // psnum - 선택된 ul의 li개수 전달받을 변수
+        // 제품개수가 5개 미만이면 plist_btn 안보이게 하기 
+//        alert(psnum);
+        
+//        psnum=Number(psnum); // 숫자형으로 변환!!
+        
+        if(psnum<5) {
+            document.querySelectorAll(".plist_btn").item(0).style.display="none";
+            document.querySelectorAll(".plist_btn").item(1).style.display="none";
+        } 
+        else if(psnum>=5) {
+            document.querySelectorAll(".plist_btn").item(0).style.display="block";
+            document.querySelectorAll(".plist_btn").item(1).style.display="block";
+        }
+        
+    }/////////////////chkPnum 함수//////////////////
+//////////////////////////////////////////////////
+
+
+/*////////////////////////////////////////
+
+함수명: oneStepSlide
+기능: 제품이미지 버튼누르면 한제품씩 이동하기
+
+*/////////////////////////////////////////
+
+
+var psts2=0; // 국순당 제품소개 양쪽 화살표 광클금지 전역변수(0-사용안함, 1-사용중)
+
+function oneStepSlide(dir2) { // dir2-이동방향(0-prev, 1-next)
+    
+    //////////////// 나중에 광클금지설정!!!!!!!!!!!!!!////////
+    if(psts2===1) {return false;} // 여기서 돌아감! 하단코드 실행안함!
+    psts2=1; // 막기상태로 변경(문잠금)
+    /////////////////////////////////////////////////////////////
+    
+    // 1. 대상선정
+
+    moveUl = document.querySelector(".selected_pslide"); ////선택된 ul
+    moveLi = document.querySelectorAll(".selected_pslide li"); //선택된 ul의 제품들(li)의 집합
+
+    // 2. 변경내용: left값을 변경하여 슬라이드 이동함
+    
+    if(dir2===1) { // 오른쪽 가기
+        
+        // 1) 왼쪽방향으로 제품이미지들 이동하기
+        moveUl.style.left="-25%";
+        moveUl.style.transition="left 0.8s ease-out";
+        
+        // 2) 제품 이동 후 맨 앞의 것 맨 뒤로 이동하기 
+        setTimeout(function() {
+            
+            // 잘라서 맨 뒤로 이동
+            moveUl.appendChild(moveLi.item(0), moveLi);
+            
+            // 동시에 부모박스(moveUl)의 left값을 0으로 초기화함!!!
+            moveUl.style.left="0";
+
+            // 트랜지션 없애기(초기화 과정이 보이면 안됨!!)
+            moveUl.style.transition="none";
+            
+        }, 800); // 0.8초 후에 맨앞의 li 맨 뒤로 이동하기 
+        
+    }///////////////////if문///////////////////
+    else if(dir2===0) { // 1. 왼쪽 방향으로 슬라이드 이동하기 
+        
+        // 1) 맨 뒤의 li 잘라서 맨 앞으로 이동하기 
+        moveUl.insertBefore(moveLi.item(moveLi.length-1), moveLi.item(0));
+        
+        // 2) 부모슬라이드(moveUl)의 left값을 -12.5% 로 변경한다(앞 추가 티안나게!!!)
+        moveUl.style.left="-25%";
+        moveUl.style.transition="none";
+        
+        // 3) 부모슬라이드 오른쪽으로 이동위해 left값 0으로 transition도 설정
+        setTimeout(function(){
+            moveUl.style.left="0";
+            moveUl.style.transition="left 0.8s ease-out";
+        }, 100); // left 셋팅 실행간격을 조금 준다 
+        
+    }/////////////else if문////////////////////////////
+    
+    
+ ////////////////////////잠금장치 풀기설정///////////////////////
+    setTimeout(function() {psts2=0;}, 800);
+    //////////////////////////////////////////////////////////
+   
+    
+} //////////////////////oneStepSlide 함수 ///////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////// 모바일버젼 국순당 제품소개 ////////////////////////
+
+/*//////////////////////////////////////////////////////
+
+함수명: chkPnum2
+기능: 모바일에서 국순당 제품소개 제품 4개 미만시 양쪽 화살표 없애기
+
+*///////////////////////////////////////////////////////
+
+    function chkPnum2(psnum2) { // psnum2 - 선택된 ul의 li개수 전달받을 변수
+        // 제품개수가 4개 미만이면 plist_btn 안보이게 하기 
+     //   alert(psnum2);
+        
+        
+        if(psnum2<4) {
+            document.querySelectorAll(".plist_btn").item(0).style.display="none";
+            document.querySelectorAll(".plist_btn").item(1).style.display="none";
+        } 
+        else if(psnum2>=4) {
+            document.querySelectorAll(".plist_btn").item(0).style.display="block";
+            document.querySelectorAll(".plist_btn").item(1).style.display="block";
+        }
+        
+    }/////////////////chkPnum2 함수//////////////////
+//////////////////////////////////////////////////
+
+
+/*////////////////////////////////////////
+
+함수명: oneStepSlide2
+기능: 제품이미지 버튼누르면 한제품씩 이동하기
+
+*/////////////////////////////////////////
+
+
+var psts3=0; // 국순당 제품소개 양쪽 화살표 광클금지 전역변수(0-사용안함, 1-사용중)
+
+function oneStepSlide2(dir3) { // dir3-이동방향(0-prev, 1-next)
+    
+    //////////////// 나중에 광클금지설정!!!!!!!!!!!!!!////////
+    if(psts3===1) {return false;} // 여기서 돌아감! 하단코드 실행안함!
+    psts3=1; // 막기상태로 변경(문잠금)
+    /////////////////////////////////////////////////////////////
+    
+    // 1. 대상선정
+
+    moveUl = document.querySelector(".selected_pslide"); ////선택된 ul
+    moveLi = document.querySelectorAll(".selected_pslide li"); //선택된 ul의 제품들(li)의 집합
+
+    // 2. 변경내용: left값을 변경하여 슬라이드 이동함
+    
+    if(dir3===1) { // 오른쪽 가기
+        
+        // 1) 왼쪽방향으로 제품이미지들 이동하기
+        moveUl.style.left="-33.333333%";
+        moveUl.style.transition="left 0.8s ease-out";
+        
+        // 2) 제품 이동 후 맨 앞의 것 맨 뒤로 이동하기 
+        setTimeout(function() {
+            
+            // 잘라서 맨 뒤로 이동
+            moveUl.appendChild(moveLi.item(0), moveLi);
+            
+            // 동시에 부모박스(moveUl)의 left값을 0으로 초기화함!!!
+            moveUl.style.left="0";
+
+            // 트랜지션 없애기(초기화 과정이 보이면 안됨!!)
+            moveUl.style.transition="none";
+            
+        }, 800); // 0.8초 후에 맨앞의 li 맨 뒤로 이동하기 
+        
+    }///////////////////if문///////////////////
+    else if(dir3===0) { // 1. 왼쪽 방향으로 슬라이드 이동하기 
+        
+        // 1) 맨 뒤의 li 잘라서 맨 앞으로 이동하기 
+        moveUl.insertBefore(moveLi.item(moveLi.length-1), moveLi.item(0));
+        
+        // 2) 부모슬라이드(moveUl)의 left값을 -12.5% 로 변경한다(앞 추가 티안나게!!!)
+        moveUl.style.left="-33.333333%";
+        moveUl.style.transition="none";
+        
+        // 3) 부모슬라이드 오른쪽으로 이동위해 left값 0으로 transition도 설정
+        setTimeout(function(){
+            moveUl.style.left="0";
+            moveUl.style.transition="left 0.8s ease-out";
+        }, 100); // left 셋팅 실행간격을 조금 준다 
+        
+    }/////////////else if문////////////////////////////
+    
+    
+ ////////////////////////잠금장치 풀기설정///////////////////////
+    setTimeout(function() {psts3=0;}, 800);
+    //////////////////////////////////////////////////////////
+   
+    
+} //////////////////////oneStepSlide2 함수 ///////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////
+
+함수명: chgTab
+기능: 페이스북, 트위터 탭메뉴 클릭시 클릭된 탭의 class 변경하고 같은 순번의 컨텐츠를 보이도록 class를 변경한다.
+
+*//////////////////////////////////////////////////////////////////////////////////
+
+function chgTab(gno) { // gno - 구분번호(탭순번) 
+   // alert("탭 자바스크립트 짱난다 "+gno)
+    
+//    1. 변경대상선정a - .tab_btns li (탭버튼)
+//    1. 변경대상선정b - .sns_cont li (탭컨텐츠)
+    var tabBtn = document.querySelectorAll(".tab_btns > li");
+    var tabCont = document.querySelectorAll(".sns_cont > li");
+    
+//    3. class 초기화 해주기
+     for (i=0; i<tabBtn.length; i++) {
+         
+         tabBtn.item(i).setAttribute("class", ""); // 탭버튼 초기화
+         tabCont.item(i).setAttribute("class", ""); // 탭컨텐츠 초기화
+         
+     }// for문/////////////////////////
+    
+    
+//    2. 변경대상 class 넣기 
+    tabBtn.item(gno).setAttribute("class", "select_sns_tab");
+    tabCont.item(gno).setAttribute("class", "select_sns_cont");
+    
+}/////////////////// chgTab 함수/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+
+
+

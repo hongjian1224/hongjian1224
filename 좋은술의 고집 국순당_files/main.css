@@ -1,0 +1,876 @@
+/*! main.css © hw. 2018 */
+@charset "utf-8";
+@import url("common.css");
+
+
+  /***************/
+ /* main visual */
+/***************/
+
+#main-visual {
+    position: relative;
+    width: 100%;
+    height: 546px; 
+}
+#slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#slide li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out 0.2s;
+}
+#slide li:nth-child(1) {
+    background: url("../images/slide_01.jpg") no-repeat center/cover;
+}
+#slide li:nth-child(2) {
+    background: url("../images/slide_02.jpg") no-repeat center/cover;
+}
+#slide li:nth-child(3) {
+    background: url("../images/slide_03.jpg") no-repeat center/cover;
+}
+#slide li:nth-child(4) {
+    background: url("../images/slide_04.jpg") no-repeat center/cover;
+}
+#slide li:nth-child(5) {
+    background: url("../images/slide_05.jpg") no-repeat center/cover;
+}
+#slide li:nth-child(6) {
+    background: url("../images/slide_06.jpg") no-repeat center/cover;
+}
+
+/*prev/ next 버튼 styling*/
+
+#main-visual .btn_guide {
+    position: relative;
+    width: calc(100% - 50px);
+    max-width: 1050px;
+    height: 100%;
+    margin:  0 auto;
+}
+.btn_guide .abtn {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.btn_guide .ab1 {
+    left: 0;
+    background-position: -27px 0;
+}
+.btn_guide .ab2 {
+    right: 0;
+    background-position: 0 0;
+}
+.btn_guide .ab1:hover {
+    left: 0;
+    background-position: -461px 0;
+}
+.btn_guide .ab2:hover {
+    right: 0;
+    background-position: -434px 0;
+}
+
+/* 슬라이드 보이게 하는 클라스 */
+#slide .show_slide {
+    opacity: 1;
+}
+
+/* 블릿버튼 스타일링 */
+.bullet_box {
+    position: absolute;
+    bottom: 21px;
+    right: 28px;
+}
+.bullet_box a {
+    float: left;
+    display: block;
+    width: 21px;
+    height: 21px;
+    border: 2px solid #ff6600;
+    box-sizing: border-box;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all .2s ease-in-out; 
+}
+.bullet_box a:hover {
+    opacity: 1;
+    background-color: #ff6600;
+}
+.bullet_box a + a {
+    margin-left: 7px;
+}
+/* 선택된 블릿버튼 스타일링 */
+.bullet_on {
+    background-color: #ff6600;
+    opacity: 1 !important;
+}
+
+/* 슬라이드 stop, play 버튼(.autoplay_box) 스타일링*/
+.autoplay_box {
+    position: absolute;
+    bottom: 21px;
+    right: 0;
+    width: 21px;
+    height: 21px;
+}
+.autoplay_box a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 21px;
+    height: 21px;
+    border: 2px solid #660000; 
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: all .2s ease-in-out; 
+}
+.autoplay_box .play {
+    display: none;
+}
+.autoplay_box .stop {}
+.autoplay_box .play::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent; 
+    border-bottom: 5px solid transparent; 
+    border-left: 8px solid #660000; 
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    margin-left: 5px;
+}
+.autoplay_box .stop::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    width: 3px;
+    height: 8px;
+    background-color: #660000;  
+}
+.autoplay_box .stop::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    width: 3px;
+    height: 8px;
+    background-color: #660000;  
+}
+.autoplay_box a:hover {
+    opacity: 1;
+}
+/* main visual end */
+
+
+  /************************/
+ /*  main basic styling  */
+/************************/
+
+
+#page-main > div:first-child {
+    margin-top: 64px;
+}
+#page-main section {
+    position: relative !important;
+    transition: all 0.4s ease-in;
+}
+#page-main section h3,
+#page-main .main_guide3 .width_guide h3 {
+    font-size: 35px;
+    font-size: 3.5rem;
+    line-height: 1.2288;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    margin-bottom: 40px;
+    white-space: nowrap;
+}
+#page-main .main_guide3 .width_guide h3 {
+    margin-bottom: 21px;
+}
+#page-main section .more {
+    position: absolute;
+    top: 19px;
+    right: 15px;
+    display: block;
+    color: #ff9900;
+}
+#page-main section .more:after,
+#page-main section .more::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 10px;
+    background-position: -98px -32px;
+    position: absolute;
+    right: -11px;
+    top: 6px;
+}
+
+ /*****************************/
+ /*    main guide styling    */
+/****************************/
+
+.main_guide1 {
+    width: calc(100% - 50px);
+    max-width: 1050px;
+    margin: 0 auto 85px;
+}
+.main_guide1 section {
+    width: calc(50% - 25px);
+    max-width: 500px;
+}
+.main_guide1 .new,
+.main_guide1 #sns_tab {
+    float: left;
+}
+.main_guide1 .movie,
+.main_guide1 #sns_insta {
+    float: right;
+}
+
+
+  /********************/
+ /*    신제품 소식     */
+/********************/
+
+.new .sbox {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: 294px;
+    box-sizing: border-box;
+    border: 3px solid #ff6600;
+}
+.new .sbox::before {
+    content: "";
+    display: block;
+    padding-top: 58.8%;
+}
+.new .sbox .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.new .sbox h4 {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    font-size: 22px;
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.35; 
+    color: #660000;
+    white-space: normal; 
+    width: 45%;
+    height: 58px;
+    word-wrap: break-word; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.new .sbox p {
+    position: absolute;
+    left: 5%;
+    top:43%;
+    width: 45%;
+    word-wrap: break-word; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 6; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.new .sbox .new_img {
+    width: 45%;
+    height: 100%;
+    float: right;
+    background: url("../images/new01.jpg") no-repeat center/cover;
+}
+
+
+  /******************/
+ /*    영상광고     */
+/******************/
+
+.movie .mbox {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: 294px;
+}
+.movie .mbox::before {
+    content: "";
+    display: block;
+    padding-top: 58.8%;
+}
+.movie .mbox .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.movie .mbox .inner iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+ /************************/
+ /*    국순당 제품소개     */
+/************************/
+
+.main_guide2 {
+    width: calc(100% - 50px);
+	max-width: 1050px;
+    margin: 0 auto 84px;
+    clear: both;   
+}
+.main_guide2 h3 {
+    text-align: center;
+}
+.main_guide2 .products .pbox {
+    height: 294px;
+}
+
+/************ 왼쪽 제품리스트 탭버튼 스타일 *******************/
+.product_list {
+    float: left;
+    width: 19.047619%;
+    max-width: 200px;
+    height: 100%;
+    text-align: center;
+}
+.product_list li {
+    width: 100%;
+    font-size: 22px;
+    font-size: 2.2rem;
+    line-height: 2.24;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.product_list li a {
+    color: #999;
+    display: block;
+}
+.product_list li:hover a {
+    color: #ff6600;
+}
+
+/************* 선택된 제품리스트 탭버튼 스타일링 **********/
+.on {
+    background-color: #ff6600 !important;
+}
+.on a {
+    color: #fff !important;
+}
+
+
+/************ 제픔리스트 공통 스타일 ***************/
+.product_slide {
+    position: relative;
+    float: right;
+    width: 73.904761%;  /*77.714285%*/
+    max-width: 776px;
+    height: 100%;
+    margin: 0 20px;
+}
+.product_slide .plist_guide {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.product_slide .plist_guide ul { 
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(.17,.67,0,.98);
+}
+.product_slide .plist_guide ul li {
+    float: left;
+    width: 12.5%;
+    height: 294px;
+}
+.product_slide .plist_guide ul li a {
+    text-align: center;
+    display: block;
+}
+.product_slide .plist_guide ul li a img {
+/*    outline: 1px solid lime;*/
+}
+.product_slide .plist_guide ul li a span {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color: #666;
+    display: block;
+    margin-top: 21px;    
+}
+
+/*************** 선택된 제품리스트 스타일링 *******************/
+.selected_pslide {
+    opacity: 1 !important;
+    z-index: 5;
+}
+
+/************ 제품 슬라이드 이동버튼(화살표) 스타일링 *******************/
+.product_slide .plist_btn {
+    position: absolute;
+    top: 0;  /*105px*/
+    display: block;
+    width: 20px;
+    height: 100%;
+    padding-top: 105px !important;
+    box-sizing: border-box;
+    opacity: 0.5;
+    display: none;
+}
+.product_slide .plist_btn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 40px;
+}
+.product_slide .plist_btn:hover {
+    opacity: 1;
+} 
+.product_slide .plist_prev {
+    left: -20px;
+}
+.product_slide .plist_prev::after {
+    background-position: -76px 0;
+}
+.product_slide .plist_next {
+    right: -20px;
+}
+.product_slide .plist_next::after {
+    background-position: -54px 0;
+}
+
+
+
+  /********************************/
+ /*  주향로 / 우리술교육  styling   */
+/*********************************/
+
+.main_guide3 {
+    position: relative;
+    width: 100%;
+    height: 315px;
+    margin-bottom: 85px;
+}
+.main_guide3 section {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+.main_guide3 section a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 10;
+}
+.joo_txtbox,
+.edu_txtbox,
+.g_txtbox,
+.con_txtbox {
+    width: calc(100% - 25px);
+    max-width: 500px;
+    margin-top: 42px;
+}
+.education a .edu_txtbox,
+.contribution a .con_txtbox {
+    position: absolute;
+    left: 25px;
+}
+.width_guide {
+    position: relative;
+    top: 0;
+    width: calc(100% - 50px);
+    max-width: 1050px;
+    margin: 0 auto;
+}
+.width_guide .joo_txtbox,
+.width_guide .g_txtbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.main_guide3 p {
+    color: #666;
+    mix-blend-mode: multiply;
+}
+.edu_txtbox p {
+/*    mix-blend-mode: normal;*/
+    color: #fff;
+}
+.main_guide3 section a h3 {
+    margin-bottom: 21px !important;
+}
+.main_guide3 .joohyangro {
+    background: url("../images/bg_joohyangro.jpg") no-repeat right center/cover;
+}
+.main_guide3 .education {
+    background: url("../images/bg_education.jpg") no-repeat left center/cover;
+}
+.main_guide3 p {
+    white-space: nowrap;
+}
+
+
+/**********************/
+/* 국순당 소식 & 이벤트 */
+/*********************/
+
+.news li {
+    position: relative;
+    width: 23.5%;
+    max-width: 255px;
+    float: left;
+}
+.news li + li {
+    margin-left: 2%;
+}
+.news li span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    color: #fff;
+    padding: 0 0.615384em;
+    background-color: #ff6600;
+    z-index: 10;
+}  
+.news li a {
+    display: block;
+}
+.news li a .news_img {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 21px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+.news li .news_img::before {
+    content: "";
+    display: block;
+    padding-top: 67.4%;
+}
+.news li .news_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+.news li a h4 {
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 21px;
+}
+.news li a p {
+    white-space: normal; 
+    text-align: left; 
+    line-height: 1.5;
+    height: 42px;
+    word-wrap: break-word; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.news li:hover img {
+    transform: scale(1.1);
+}
+.news li:hover a h4 {
+    color: #ff6600;
+}
+.news li:hover a p {
+    text-decoration: underline;
+   /* text-decoration-color: #ff6600;*/
+}
+
+ /**************************************************/
+ /*    sns tab - facebook&twitter & instagram     */
+/*************************************************/
+#sns_tab,
+#sns_insta {
+/*    outline: 1px dashed red; */
+}
+
+#sns_tab h3,
+#sns_insta h3 {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -0.03em;
+}
+#sns_tab .sns_cont,
+#sns_insta .sns_cont {
+    position: relative;
+    width: 100%;
+    max-height: 294px;
+}
+#sns_tab .sns_cont {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#sns_tab .sns_cont::before,
+#sns_insta .sns_cont::before {
+    content: "";
+    display: block;
+    padding-top: 58.8%;
+}
+#sns_tab .sns_cont .inner,
+#sns_insta .sns_cont .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+
+/****************** sns 탭그룹 스타일링 *********************/
+
+/* 탭버튼 잡기 */
+#sns_tab .tab_btns {}
+#sns_tab .tab_btns li {
+    position: relative;
+    float: left;
+    height: 83px;
+}
+#sns_tab .tab_btns li + li {
+    padding-left: 11px;
+    margin-left: 56px;
+}
+#sns_tab .tab_btns li + li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 1px;
+    height: 24px;
+    background-color: #ccc;
+}
+#sns_tab .tab_btns li {
+    position: relative;  /* h3::after 부모역활*/
+    color: #ccc;
+    cursor: pointer;
+}
+#sns_tab .tab_btns > li h3::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 6px;
+    right: -40px;
+    background-position: -130px 0;
+}
+#sns_tab .tab_btns > .select_sns_tab:nth-child(1) h3::after {
+    background-position: -98px 0;
+}
+#sns_tab .tab_btns > li:nth-child(2) h3::after {
+    background-position: -194px 0;
+}
+#sns_tab .tab_btns > .select_sns_tab:nth-child(2) h3::after {
+    background-position: -162px 0;
+}
+
+/********선택된 sns 탭버튼 스타일 **************/
+.select_sns_tab {
+    color: #333 !important;
+    cursor: default !important;
+}
+/*********************************************/
+
+
+/********************* sns 탭 콘텐츠 스타일링 **********************/
+#sns_tab .sns_cont {
+    position: relative;
+}
+#sns_tab .sns_cont > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+/*************선택된 sns 탭 컨텐츠 스타일*******************/
+.select_sns_cont {
+    display: block !important;
+}
+/******************************************************/
+
+/* 페이스북 콘텐츠 전체 */
+#sns_tab .sns_cont > li:first-child .inner iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} 
+/* 트위터 콘텐츠 전체 */
+#sns_tab .sns_cont > li:last-child .inner {
+    overflow-y: scroll;
+}
+
+/* 인스타그램 스타일 */
+
+/* 인스타그램 타이틀 스타일링 */
+#sns_insta h3 {
+    position: relative;
+    margin-bottom: 41px;
+}
+#sns_insta h3::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 6px;
+    left: 190px;
+    background-position: -226px 0;
+} 
+/* 인스타그램 타이틀 스타일링 여기까지 */
+
+#sns_insta .sns_cont ul {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#sns_insta li {
+    width: 23.5%;
+    height: 48.3%;
+    float: left;
+    overflow: hidden;
+}
+#sns_insta li + li {
+    margin-left: 2%;
+}
+#sns_insta li:nth-child(5) {
+    margin-left: 0;
+}
+#sns_insta li:nth-child(5),
+#sns_insta li:nth-child(6),
+#sns_insta li:nth-child(7),
+#sns_insta li:nth-child(8) {
+    margin-top: 2%;
+}
+#sns_insta li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    transition: transform 0.5s ease-out;
+}
+#sns_insta li:hover a {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+#sns_insta li:first-child a {
+    background: url("../images/instagram_1.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(2) a {
+    background: url("../images/instagram_2.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(3) a {
+    background: url("../images/instagram_3.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(4) a {
+    background: url("../images/instagram_4.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(5) a {
+    background: url("../images/instagram_5.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(6) a {
+    background: url("../images/instagram_6.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(7) a {
+    background: url("../images/instagram_7.jpg") no-repeat center/cover;
+}
+#sns_insta li:nth-child(8) a {
+    background: url("../images/instagram_8.jpg") no-repeat center/cover;
+}
+
+/* 인스타그램 팔로우 하러가기 버튼 스타일링*/
+.insta_btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    color: #fff;
+    background-color: #ff6600;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    padding: 0.5em 0.714285em 0.35em; 
+    cursor: pointer;
+}
+
+ /******************************/
+ /*  녹색기업 / 사회공헌 styling */
+/******************************/
+
+.main_guide3 .green {
+    background: url("../images/bg_green.jpg") no-repeat right center/cover;
+}
+.main_guide3 .contribution {
+    background: url("../images/bg_contribution.jpg") no-repeat left center/cover;
+}
+main > div:last-child {
+    margin-bottom: 0;
+}
+
+ 
+
+
+
+

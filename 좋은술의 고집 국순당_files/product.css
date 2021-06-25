@@ -1,0 +1,407 @@
+/*! main.css © hw. 2018 */
+@charset "utf-8";
+@import url("common.css");
+
+
+/*************************************/
+/*    sub page visual & snb 스타일링   */
+/*************************************/
+
+#showPD {
+    position: absolute;
+    bottom: 63px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    outline: none;
+    cursor: default;
+    opacity: 0;
+}
+
+/* 상품 개별 비주얼 */
+.cont_visual {
+    position: relative;
+    box-sizing: border-box;
+    padding: 105px 0 21px;
+    margin-bottom: 42px;
+    background-color: rgba(255,103,0,.07);
+    overflow: hidden;
+}
+.cont_visual .guide {
+/*    outline: 1px solid blue;*/
+}
+.cont_visual .guide > div {
+    position: relative;
+/*    outline: 1px dashed red;*/
+}
+.cont_visual .guide > div::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.cont_visual .rep_img {
+    float: left;
+    margin-left: 10%;
+    width: 40%;
+}
+.cont_visual .rep_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.cont_visual .rep_explain {
+    float: right; 
+    margin-left: 3%;
+    margin-right: 7%;
+    width: 40%;
+}
+.cont_visual .rep_explain .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.cont_visual .rep_explain h3 {
+    font-size: 54px;
+    line-height: 2;
+    font-weight: 400;
+    color: #600;
+}
+.cont_visual .rep_explain p {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    font-size: 2.8rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #666;
+}
+
+
+.tab_btn {
+    margin-bottom: 21px;
+}
+.tab_btn ul {
+    box-sizing: border-box;
+    height: 42px;
+    width: calc(100% - 2px);
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.tab_btn ul > li {
+    float: left;
+    text-align: center;
+    font-size: 22px;
+    line-height: 42px;
+    white-space: nowrap;
+}
+.tab_btn li a {
+    display: block;
+    color: #ccc;
+    cursor: pointer;
+}
+.tab_btn li + li {
+    border-left: 1px solid #ccc;
+}
+.tab_btn li.select_tab a {
+    color: #333;
+    cursor: default;
+}
+
+/* 상품별 개별 탭 사이즈 설정 CSS */
+.tab_bsj li { /* 백세주 */
+    width: calc(25% - 1px);
+}
+.tab_mj li { /* 명작 */
+    width: calc(20% - 1px);
+}
+.tab_mak li { /* 막걸리 */
+    width: calc(12% - 1px);
+}
+.tab_mak li:nth-child(4) { /* 막걸리 */
+    width: calc(16% - 1px);
+}
+.tab_import li { /* 수입주류 */
+    width: calc(33.333333% - 1px);
+}
+.tab_etc li { /* 기타주류 */
+    width: calc(12% - 1px);
+}
+.tab_etc li:nth-child(7) { /* 기타주류 */
+    width: calc(16% - 1px);
+}
+
+
+.tab_cont {
+    height: auto;
+}
+.tab_cont ul li {
+    display: none;
+}
+.tab_cont ul li.select_cont {
+    display: block;
+    z-index: 10;
+}
+.tab_cont .sub_visual .product_logo {
+    position: relative;
+    float: left;
+    max-width: 315px;
+    width: 30%;
+    margin-left: 10%;
+}
+.tab_cont .sub_visual .product_logo::before {
+    content: "";
+    display: block;
+    padding-top: 179.68254%; /* height: 566px */
+}
+.tab_cont .sub_visual .product_logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.tab_cont .sub_visual .product_visual {
+    position: relative;
+    float: right;
+    max-width: 630px;
+    width: 60%;
+}
+.tab_cont .sub_visual .product_visual::before {
+    content: "";
+    display: block;
+    padding-top: 89.841269%; /* height: 566px */
+}
+.tab_cont .sub_visual .product_visual img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.sub_explain {
+    height: auto;
+}
+.sub_explain > div {
+    width: 47.619047%;
+}
+.sub_explain .left {
+    float: left;
+}
+.sub_title {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-size: 35px;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 0;
+    color: #ff9900;
+    margin-bottom: 21px;
+}
+.sub_p,
+.right dl {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #666;
+}
+.sub_p {
+    text-align: justify;
+    line-height: 1.7;
+}
+.sub_explain .right {
+    float: right;
+    margin-top: 21px;
+    border-top: 1px solid #ccc;
+    
+}
+.sub_explain .right dl {
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    min-height: 42px;
+}
+.sub_explain .right dl dt {
+    float: left;
+    text-align: center;
+    font-weight: 400;
+    color: #ff9900;
+    width: 63px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.sub_explain .right dl dd {
+    float: left;
+/*    max-width: 437px;*/
+    width: calc(100% - 63px);
+    padding: 0 7px;
+    box-sizing: border-box;
+}
+
+.sub_explain .add dl dt { /* 유통기한 */
+    width: 90px;
+    text-align: left;
+    padding-left: 12px;
+}
+.sub_explain .add dl dd {
+    width: calc(100% - 90px);
+}
+
+
+@media only screen and (max-width:940px) {
+    
+    .cont_visual {
+        padding: 90px 0 30px;
+        margin-bottom: 30px;
+    }
+    .cont_visual .rep_explain h3 {
+        font-size: 35px;
+        margin-bottom: 0 !important;
+    }
+    .cont_visual .rep_explain p {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+    .tab_btn ul {
+        height: 60px;
+    }
+    .tab_btn li.select_tab a {
+        color: #fff;
+        background-color: #ff6600;
+    }
+    
+    .tab_mak, .tab_etc {
+        height: 120px !important;
+    }
+    .tab_mak li, 
+    .tab_etc li { 
+        width: calc(25% - 1px) !important;
+    }
+    .tab_mak li:nth-child(5),
+    .tab_etc li:nth-child(5) {
+        border-left: 0;
+    }
+    .tab_mak li:nth-child(5),
+    .tab_mak li:nth-child(6),
+    .tab_mak li:nth-child(7),
+    .tab_mak li:nth-child(8),
+    .tab_etc li:nth-child(5), 
+    .tab_etc li:nth-child(6), 
+    .tab_etc li:nth-child(7), 
+    .tab_etc li:nth-child(8) {
+        border-top: 1px solid #ccc;
+    }
+    
+    .tab_cont .sub_visual {
+        margin-bottom: 20px;
+    }
+    .sub_explain > div {
+        float: none;
+        width: 100%;
+    } 
+}  /*///////////media 940px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+  /*/////////////////////////*/
+ /* 컨텐츠 600px 양옆 20씩 여백*/
+/*/////////////////////////*/
+
+@media only screen and (max-width:640px) {
+    
+    .container {
+        max-width: 600px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(255, 0, 255, 0.9) 90%),
+                  linear-gradient(90deg, rgba(0, 0, 0, 0.08) 50%, rgba(255, 255, 0, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+    }
+
+
+
+}  /*///////////media 640px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+   /*/////////////////////////*/
+  /* 컨텐츠 480px 양옆 15씩 여백*/
+ /*/////////////////////////*/
+
+@media only screen and (max-width:480px) {
+    
+    .container {
+        width: calc(100% - 30px);
+        max-width: 450px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(0, 255, 0, 0.9) 90%),
+                  linear-gradient(90deg, rgba(239, 64, 15, 0.15) 50%, rgba(0, 255, 255, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+    }
+
+}  /*///////////media 480px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,636 @@
+// 국순당 메인제외 나머지 페이지 JS © hw. 2018
+
+/////////////////////////전역변수 구역////////////////////////
+
+var gnb, gnbBg; // 네비게이션 메뉴, 배경
+var ws = window.innerWidth;
+
+// 모바일여부 전역변수
+var mobileS = 0; // 0 = 모바일, 1 = 타블렛, 2 = 데스크탑
+if (ws <= 640) {mobileS = 0; }
+else if(ws>640&&ws<=940) {mobileS=1;}
+else mobileS=2;
+// console.log(mobileS);
+
+var mGnb,topMenu,Logo,mSet; // 모바일 GNB메뉴용 변수
+var mDT,mDL,mDTA; // 모바일용 GNB DT, DL
+var hamOpen; // 모바일 햄버거버튼 변수
+
+// TOP메뉴 상태변수
+var tmsts=0; // 0-변경전, 1-변경후 
+
+
+//현재 브라우저 가로폭(숫자로된 px단위)
+var winW = $(window).width();
+
+////////////////////////////////////////////////////////////	
+
+
+$(window).scroll(function(){
+    
+    var cTop=$(this).scrollTop(); // 현재 window의 스크롤바 위치값 리턴
+//    console.log(cTop);
+    
+    if(cTop>=651 && tmsts===0){
+        tmsts=1; // 상태변경
+        $(".cont_nav").css({position:"fixed", top:"-63px"}).animate({top:0},300);
+    }/////if//////////////
+    else if(cTop<651 && tmsts===1){
+        tmsts=0; // 상태변경
+        $(".cont_nav").animate({top:"-63px"},300,function(){
+            $(this).css({position:"absolute", top:0});
+        });/////////////animate//////////
+    }/////else if/////////////
+    
+});///////////scroll/////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+$(document).ready(function(){
+    
+        ////// 국순당 메인페이지 제품소개 /////////////
+    
+    $(".plist_guide a").click(function(e){
+        e.preventDefault(); 
+    });///////////////click/////////////////
+    
+
+///////  main 페이지 국순당 제품소개: 제품 누르면 해당되는 탭으로 이동하기 
+    $("#p_bsj li a").click(function(){
+        var idx = $(this).index("a"); /* a만 모아서 순번*/
+//        alert(idx);
+        if(idx===53){
+            location.href="product_bsj.php?no=0#showPD";  
+//            $(".tab_bsj").find("li").eq(0).addClass("select_tab").siblings().removeClass("select_tab");
+//            $(".sub_bsj").find("#bsjC0").addClass("select_cont").siblings().removeClass("select_cont");
+        }
+        else if(idx===54){
+            location.href="product_bsj.php?no=1#showPD";
+//            $(".tab_bsj").find("li").eq(1).addClass("select_tab").siblings().removeClass("select_tab");
+//            $(".sub_bsj").find("#bsjC1").addClass("select_cont").siblings().removeClass("select_cont");
+        }
+        else if(idx===55){
+            location.href="product_bsj.php?no=2#showPD";
+//            $(".tab_bsj").find("li").eq(3).addClass("select_tab").siblings().removeClass("select_tab");
+//            $(".sub_bsj").find("#bsjC2").addClass("select_cont").siblings().removeClass("select_cont");
+        }
+        else if(idx===56){
+            location.href="product_bsj.php?no=3#showPD";
+//            $(".tab_bsj").find("li").eq(3).addClass("select_tab").siblings().removeClass("select_tab");
+//            $(".sub_bsj").find("#bsjC3").addClass("select_cont").siblings().removeClass("select_cont");
+        }
+    });///////////////click/////////////////
+       
+    $("#p_mj li a").click(function(){
+        location.href="product_mj.php#showPD";  
+    });///////////////click/////////////////
+   
+    $("#p_mak li a").click(function(){
+        location.href="product_mak.php#showPD";  
+    });///////////////click/////////////////
+    
+    $("#p_dam li a").click(function(){
+        location.href="product_dam.php#showPD";  
+    });///////////////click/////////////////
+    
+    $("#p_import li a").click(function(){
+        location.href="product_import.php#showPD";  
+    });///////////////click/////////////////
+    
+    $("#p_etc li a").click(function(){
+        location.href="product_etc.php#showPD";  
+    });///////////////click/////////////////
+        
+    
+    
+    $(".depth1").hover(function(){
+//        alert("eeee");
+        $(".depth1 > ul").css({display:"block"});
+    }, function(){
+        $(".depth1 > ul").css({display:"none"});
+    });//////////hover///////// 
+    
+       $(".depth2").hover(function(){
+//        alert("eeee");
+        $(".depth2 > ul").css({display:"block"});
+    }, function(){
+        $(".depth2 > ul").css({display:"none"});
+    });//////////hover///////// 
+        
+
+///// 회사소개 > 걸어온 길////////
+    
+    $(".show_history dl").click(function(){
+    
+        if($(this).css("height")==="62px"){
+            $(this).css({height:"auto"}).removeClass("close_history");
+           }//////if///////////////  
+        else {
+            $(this).css({height:"62px", overflow:"hidden"}).addClass("close_history");
+        }//////else///////////////  
+    
+    });///////click///////////////////
+    
+    
+///////// 홍보센터 > 고객상담실 / 인재채용 > FAQ ////////////////
+    
+    $(".cs_list dt").click(function(){
+
+        if($(this).next().css("display")==="none"){
+//            alert("ddddd");
+            $(this).next().css({display:"block"});
+            $(".icon",this).css({backgroundPosition:"-239px -50px"});       
+       }//////////if///////////////////
+        else if($(this).next().css("display")==="block") {
+            $(this).next().css({display:"none"});
+            $(".icon",this).css({backgroundPosition:"-216px -50px"});
+        }//////////else///////////////////
+
+    });///////click///////////////////
+    
+    
+    $(".list_open").click(function(){
+        
+        if($(".cs_list dt").next().css("display")==="none"){
+            $(".cs_list dt").next().css({display:"block"});
+            $(".cs_list dt .icon").css({backgroundPosition:"-239px -50px"}); 
+            $(this).php("모두닫기");
+       }//////////if///////////////////
+        else if($(".cs_list dt").next().css("display")==="block") {
+            $(".cs_list dt").next().css({display:"none"});
+            $(".cs_list dt .icon").css({backgroundPosition:"-216px -50px"});
+            $(this).php("모두열기");
+        }//////////else///////////////////
+        
+    });///////click///////////////////
+    
+    
+        /// 국순당 홍보센터  > 국순당 소식
+    
+    //번호
+    var numP =[
+       "169", "168", "167", "166", "165", "164", "163", "162", "161", "160"]
+    
+    //제목
+    var titP =[
+        "신제품 1000억 유산균 막걸리 출시!",
+        "제 35기 결산공고",
+        "신제품 야관문주 '수리(秀利)' 출시",
+        "'2017 햅쌀로 빚은 첫술' 출시!",
+        "국순당, '횡성한우축제' 공식 후원",
+        "신제품 '짠' 출시",
+        "커피막걸리 '막걸리카노' 출시",
+        "iCing 브랜드 서포터즈 합격자 발표 (5기)",
+        "iCing 브랜드 서포터즈 모집 (5기)",
+        "제 34기 결산공고"
+    ]
+    
+    //등록일
+    var registP =[
+        "2018-05-03",
+        "2018-03-29",
+        "2017-11-20",
+        "2017-10-24",
+        "2017-10-17",
+        "2017-08-16",
+        "2017-08-16",
+        "2017-07-04",
+        "2017-06-13",
+        "2017-03-24"
+    ]
+    
+    //조회수
+    var viewsP =[
+        "4,380", "2,147", "6,222", "4,469", "3,105", "3,144", "3,226", "3,098", "6,269", "3,865"
+    ]
+
+    for(var i=0; i<10; i++){
+        $("#newsList").append('<tr><td>'+numP[i]+'</td><td><a href="#">'+titP[i]+'</a></td><td>'+registP[i]+'</td><td>'+viewsP[i]+'</td></tr>')
+    }////////for문//////////////////////////
+    
+    
+    
+    /// 국순당 홍보센터 > 광고자료  / 영상광고
+    
+    /// 유투브 동영상 주소 모음
+    var video = [
+        "mjXA8UHMPy4",
+        "J0VTOxtuyqk",
+        "u5ux0km9jFI",
+        "lj9eFmaGRCU",
+        "no0Tmga2Dac",
+        "UIal4svTuH4",
+        "0wVA-ZnyPnw",
+        "hrUo1LfVmgY",
+        "KhoXaXH1-_s",
+        "LOvOTX9D_PY"
+    ]
+    var title = [
+        "바나나에 반하나? 국순당 쌀 바나나!",
+        "기분까지 리프레싱, 아이싱 - 친싱편",
+        "기분까지 리프레싱, 아이싱 - 혼싱편",
+        "좋은술 백세주 - 모임편",
+        "좋은술 백세주 - 아내편",
+        "대박 막걸리",
+        "국순당 생막걸리",
+        "백세주를 먹자 - 직장인편",
+        "백세주를 먹자 - 연인편",
+        "백세주담 런칭편"
+    ]
+    for(var j=0; j<10; j++){
+        $(".ad_movie").append('<a class="movie" href="#"><div><img src="images/promotion/'+video[j]+'.jpg" alt="국순당 영상광고"></div><span>'+title[j]+'</span></a>')
+    }////////for문//////////////////////////
+
+    
+    // 영상 누르면 그에 해당하는 동영상 팝업으로 자동재생 되게 하기
+    $(".movie").click(function(e){
+        e.preventDefault();
+        $("#dpbg,#dpbox").fadeIn(200);
+        
+        var imgsrc=$(this).find("img").attr("src");
+        imgsrc=imgsrc.split("/")[2].split(".")[0];
+        
+        $("#dpbox").append('<iframe id="showMV" src="https://www.youtube.com/embed/'+imgsrc+'?rel=0&autoplay=1&loop=1"></iframe>');
+        
+    });///////click///////////////////
+    
+    
+    // 닫기버튼 클릭시 큰 이미지 배경박스와 이미지박스 사라지게 하기 
+	// 대상: .cbtn
+	// 기능: 큰 이미지박스 fadeOut
+    $(".cbtn").click(function(e){
+        e.preventDefault();
+		$("#dpbg,#dpbox,#dpbg2,#dpbox2").fadeOut(300);
+        $("#dpbox iframe").remove();
+	});/////////////click////////////////
+    
+    
+    // 닫기버튼에 마우스 오버시 버튼 회전///////////////
+    $(".cbtn").hover(function(){ // 오버시 
+		$(this).stop().animate({rotate:"180deg"},200)
+	}, function(){ // 아웃시 
+		$(this).stop().animate({rotate:"0deg"},200)
+	});//////////////hover/////////////////////
+    
+    
+    
+    /// 국순당 홍보센터 > 광고자료 & 인쇄광고
+    var msg=[
+		"야관문주 수리秀利",
+		"좋은재료 좋은술 백세주",
+		"국순당 쌀 Flavor 시리즈",
+		"국순당 쌀 Flavor 시리즈",
+		"국순당 쌀 Flavor 시리즈",
+		"국순당 쌀 Flavor 시리즈",
+        "하얀 부드러움에 빠지다!",
+		"진한 맛이 살아있는 진짜 막걸리",
+		"진한 맛이 살아있는 진짜 막걸리"
+	]
+    
+    for(var i=0; i<9; i++) {
+        $(".ad_print").append('<a class="print" href="#"><div><img src="images/promotion/small/'+(i+1)+'.jpg" alt="국순당 인쇄광고"></div><span class="txt">'+msg[i]+'</span></a>')
+    }////////for문//////////////////////////
+    
+    $(".print").click(function(e){
+        e.preventDefault();
+        $("#dpbg2,#dpbox2").fadeIn(200);
+        
+        var imgsrc2=$(this).find("img").attr("src").replace("/small","");
+//        console.log("이미지경로: "+imgsrc2);
+        
+        $("#dpbox2").html('<img src="'+imgsrc2+'" alt="국순당 인쇄광고">').fadeIn(300);
+        
+    });///////click///////////////////    
+    
+        
+});///////////////////////JQB///////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+
+window.addEventListener("load", function(){
+    
+    // GNB 메뉴에 마우스 오버/아웃시 .gnb_bg 높이값 변경하기
+    
+    var gnb = document.getElementById("gnb");
+    var gnbBg = document.getElementsByClassName("gnb_bg").item(0);
+    
+    gnb.onmouseover=function() {
+        
+        gnbBg.style.height="211px";
+        gnbBg.style.boxShadow="0 5px 5px rgba(0,0,0,0.2)";
+        
+    }; // gnb 마우스 오버시!
+    gnb.onmouseout=function() {
+        
+        gnbBg.style.height="0";
+        gnbBg.style.boxShadow="0 5px 5px rgba(0,0,0,0.0)";
+        
+    }; // gnb 마우스 아웃시! 
+    
+    ////////////////////////////////////////////////////////////////////////////
+    
+    
+    /////////////////// 가로사이즈 체크 후 모바일, 타블렛, 데스크탑 셋팅!////////////////////
+    
+    
+    if(mobileS===0) { //////////////  모바일!!!!!
+        
+        
+        /***********모바일에서 햄버거버튼 토글기능 구현***********/
+        
+        hamOpen=0; // 토글함수 상태값(0-햄버거, 1-X모양 닫기버튼)
+        
+        document.querySelector("#mobile_btn").onclick=function() {
+            
+            mGnb=document.getElementById("gnb");
+            topMenu=document.getElementById("top_menu");
+            mLogo=document.querySelector("#mobile .mobile_logo");
+            mSet=document.getElementById("mobile");
+        
+            
+            if(hamOpen===0) { // 햄버거모양 버튼일 때
+                
+                this.style.backgroundPosition="-28px 0";
+                mGnb.style.top="159px";
+                mGnb.style.opacity="1";
+                topMenu.style.top="119px";
+                topMenu.style.opacity="1";
+                mLogo.style.opacity="1";
+                mSet.style.left="0";
+                
+                hamOpen=1; // X모양 닫기버튼 상태로 변경!
+            }/////////// if문/////////////
+            
+            else if(hamOpen===1) { // X모양 닫기버튼일때 
+                
+                this.style.backgroundPosition="0 0";
+                mGnb.style.top="-100vh";
+                mGnb.style.opacity="0";
+                topMenu.style.top="-100vh";
+                topMenu.style.opacity="0";
+                mLogo.style.opacity="0";
+                mSet.style.left="-100%";
+                
+                hamOpen=0; // 햄버거모양 버튼상태로 변경!!
+            }//////////else if문////////////////
+            
+        }/////// click ////////////////////////////////
+    
+        
+        
+         /***********모바일에서 GNB메뉴 dt누르면 dd 나오게 하기***********/
+        
+       
+        mDL = document.querySelectorAll("#gnb dl");
+        mDT = document.querySelectorAll("#gnb dt");
+        
+        
+        mDT.item(0).onclick=function() {
+          
+            setOpen(0);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(1).onclick=function() {
+            setOpen(1);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(2).onclick=function() {
+            setOpen(2);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(3).onclick=function() {
+            setOpen(3);
+            return false;
+           
+        }////////// click////////////////
+        
+        mDT.item(4).onclick=function() {
+            setOpen(4);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(5).onclick=function() {
+            setOpen(5);
+            return false;
+            
+        }////////// click////////////////
+
+         
+    }////////if문(가로사이즈가 640미만일 경우(모바일)////////////////
+    ////////////////////////////////////////////////////////////
+    
+    
+    else if(mobileS=1) {  // 타블렛
+        
+        
+        /***********타블렛에서 햄버거버튼 토글기능 구현***********/
+        
+        hamOpen=0; // 토글함수 상태값(0-햄버거, 1-X모양 닫기버튼)
+        
+        document.querySelector("#mobile_btn").onclick=function() {
+            
+            mGnb=document.getElementById("gnb");
+            topMenu=document.getElementById("top_menu");
+            mLogo=document.querySelector("#mobile .mobile_logo");
+            mSet=document.getElementById("mobile");
+            
+            if(hamOpen===0) { // 햄버거모양 버튼일 때
+                
+                this.style.backgroundPosition="-28px 0";
+                mGnb.style.top="159px";
+                mGnb.style.opacity="1";
+                topMenu.style.top="119px";
+                topMenu.style.opacity="1";
+                mLogo.style.opacity="1";
+                mSet.style.left="0";
+                
+                hamOpen=1; // X모양 닫기버튼 상태로 변경!
+            }/////////// if문/////////////
+            
+            else if(hamOpen===1) { // X모양 닫기버튼일때 
+                
+                this.style.backgroundPosition="0 0";
+                mGnb.style.top="-100vh";
+                mGnb.style.opacity="0";
+                topMenu.style.top="-100vh";
+                topMenu.style.opacity="0";
+                mLogo.style.opacity="0";
+                mSet.style.left="-100%";
+                
+                hamOpen=0; // 햄버거모양 버튼상태로 변경!!
+            }//////////else if문////////////////
+            
+        }/////// click ////////////////////////////////
+        
+    
+        
+         /***********타블렛에서 GNB메뉴 dt누르면 dd 나오게 하기***********/
+        
+       
+        mDT = document.querySelectorAll("#gnb dt");
+        mDL = document.querySelectorAll("#gnb dl");
+        
+    
+        mDT.item(0).onclick=function() {
+          
+            setOpen(0);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(1).onclick=function() {
+            setOpen(1);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(2).onclick=function() {
+            setOpen(2);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(3).onclick=function() {
+            setOpen(3);
+            return false;
+           
+        }////////// click////////////////
+        
+        mDT.item(4).onclick=function() {
+            setOpen(4);
+            return false;
+            
+        }////////// click////////////////
+        
+        mDT.item(5).onclick=function() {
+            setOpen(5);
+            return false;
+            
+        }////////// click///////////////
+        
+    }/////////////else if(타블렛)/////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    
+    
+       ///////////////// 상품 탭 구현하기 //////////////////////////
+
+   // 1. 이벤트 대상 선정: .tab_btn li
+    var tmenu = document.querySelectorAll(".tab_btn li");
+//    console.log("sns 탭버튼 갯수: "+tmenu.length);
+    
+    tmenu.item(0).onclick=function() {
+        //alert("1 고고싱");
+        selectTab(0);
+        return false;
+    }
+    tmenu.item(1).onclick=function() {
+      // alert("2 고고싱");
+        selectTab(1);
+        return false;
+    }
+    tmenu.item(2).onclick=function() {
+        //alert("3 고고싱");
+        selectTab(2);
+        return false;
+    }
+    tmenu.item(3).onclick=function() {
+      // alert("4 고고싱");
+        selectTab(3);
+        return false;
+    }
+    tmenu.item(4).onclick=function() {
+      // alert("5 고고싱");
+        selectTab(4);
+        return false;
+    }
+    tmenu.item(5).onclick=function() {
+        //alert("6 고고싱");
+        selectTab(5);
+        return false;
+    }
+    tmenu.item(6).onclick=function() {
+      // alert("7 고고싱");
+        selectTab(6);
+        return false;
+    }
+    tmenu.item(7).onclick=function() {
+        //alert("8 고고싱");
+        selectTab(7);
+        return false;
+    }
+          
+    
+}); ////////////////////end load area ///////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+
+
+/*/////////////////////////////////////////////////////////
+
+    함수: setOpen
+    기능: 모바일, 타블렛에서 #gnb dt를 클릭하면 dl의 height를 auto로 변경하기 
+
+*///////////////////////////////////////////////////////
+
+
+function setOpen(mnum) { // mnum-구분번호-gnb dt 순번
+    
+    mDT = document.querySelectorAll("#gnb dt");
+    mDL = document.querySelectorAll("#gnb dl");
+     
+    // 3. height값 초기화 해주기
+    for(k=0; k<mDT.length; k++) {
+         mDL.item(k).style.height="60px";
+         
+    }/////////for//////////////////
+    
+     mDL.item(mnum).style.height="auto";
+    
+}/////////////////setOpen 함수///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////
+
+함수명: selectTab
+기능: 선택된 탭의 class 변경하고 같은 순번의 컨텐츠를 보이도록 class를 변경한다.
+
+*//////////////////////////////////////////////////////////////////////////////////
+
+function selectTab(gno) { // gno - 구분번호(탭순번) 
+//    alert("탭 자바스크립트 짱난다 "+gno)
+    
+//    1. 변경대상선정a - .tab_btn li (탭버튼)
+//    1. 변경대상선정b - .tab_cont li (탭컨텐츠)
+    var tabBtn = document.querySelectorAll(".tab_btn ul > li");
+    var tabCont = document.querySelectorAll(".tab_cont ul > li");
+    
+//    3. class 초기화 해주기
+     for (i=0; i<tabBtn.length; i++) {
+         
+         tabBtn.item(i).setAttribute("class", ""); // 탭버튼 초기화
+         tabCont.item(i).setAttribute("class", ""); // 탭컨텐츠 초기화
+         
+     }// for문/////////////////////////
+    
+    
+//    2. 변경대상 class 넣기 
+    tabBtn.item(gno).setAttribute("class", "select_tab");
+    tabCont.item(gno).setAttribute("class", "select_cont");
+    
+}/////////////////// selectTab 함수 /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+
+

@@ -1,0 +1,1014 @@
+/*! mediaquery.css © hw. 2018 */
+@charset "utf-8";
+
+/* 국순당 메인페이지 미디어 쿼리 */
+
+  /*/////////////////////////*/
+ /* 컨텐츠 900px 양옆 20씩 여백*/
+/*/////////////////////////*/
+
+@media only screen and (max-width:940px) {
+    
+    .container {
+        width: calc(100% - 40px);
+        max-width: 900px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(0, 255, 0, 0.5) 90%),
+                  linear-gradient(90deg, rgba(239, 0, 255, 0.15) 50%, rgba(0, 0, 0, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+        height: 600vh;
+    }
+    
+    /* 헤더부분 스타일링 */
+    
+    #page-header {
+        position: fixed;
+        top: 0;
+        height: 50px;
+        border-bottom: 1px solid #ff9900;
+        background-color: rgba(255,255,255,.99);
+        z-index: 500;
+    }
+    #page-header .header_guide {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        height: 50px;
+    }
+    #page-header .header_guide h1 {
+        left: 0;
+        top: 10px;
+        width: 62px;
+        height: 30px;
+        margin: 0;
+        background-size: cover;
+    }
+
+    #mobile_btn {
+        display: block;
+    }
+
+    
+     /****** #top_menu styling ******/
+    
+     #top_menu {
+        left: -20px; 
+        top: -100vh; /*119px이 되어야 모바일화면에서 보임! 스크립트로 제어!*/
+        width: calc(100% + 40px);
+        height:41px;
+        z-index: 520;
+        border-top: 1px solid #666;
+        opacity: 0; /* 스크립트로 제어*/
+        transition: opacity 0.1s ease-in-out 0.05s
+    }
+    #top_menu ul {
+        height: 100%;
+    }
+    #top_menu li {
+        box-sizing: border-box;
+        width: 33.333333%;
+        text-align: center;
+        line-height: 27px;
+        height: 100%;
+    }
+    #top_menu li + li {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    #top_menu li + li::before {
+        height: 39px;
+        top: 0;
+        background-color: #666;
+    }
+    #top_menu li a {
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        height: 95%;
+        line-height: 27px;
+        transition: all 0.15s ease-in;
+    }
+    #top_menu li:hover a {
+        color:#fff;
+        background-color: #ff6600;
+    }
+    
+    
+      /*****************/
+     /* GNB 네비게이션  */
+    /*****************/
+    .gnb_bg {
+        display: none;
+    }
+    #gnb {
+        top: -100vh; /*159px*/
+        left: -20px;
+        width: calc(100% + 40px);
+        height: 100vh;
+        padding-top: 0;
+        border-top: 1px solid #666;
+        box-sizing: border-box;
+        z-index: 520;
+        opacity: 0; /* 스크립트로 제어*/
+        transition: opacity 0.1s ease-in-out 0.05s
+    }
+    #gnb:hover {
+        height: 100vh;
+    }
+    #gnb dl {
+        float: none;
+        width: 100% !important;
+        height: 60px;
+        text-align: left;
+        border-bottom: 1px solid #666;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    #gnb dl dt {
+        position: relative;
+        padding-bottom: 0;
+        padding-left: 20px;
+        height: 60px;
+        line-height: 2.5;
+    }
+    #gnb dl dt span {
+        width: calc(100% - 40px);
+        height: 100%;
+    }
+    #gnb dl dt span  a {
+        display: block;
+        color: #ccc; 
+    }
+    #gnb dl dt span a:after, 
+    #gnb dl dt span a::after {
+        display: none;
+    }
+    #gnb dl:hover dt span a::after,
+    #gnb dl:focus dt span a::after {
+        transform: none;
+    }
+    
+    /****** GNB 하위메뉴(dd) styling ******/
+    
+    #gnb dl dd {
+        padding-left: 40px;
+        height: 35px;
+        line-height: 35px;
+        background-color: #666;
+    }
+    #gnb dl dd a {
+        color: #ccc;
+    }
+    #gnb dl dd:hover a {
+        color: #fff;
+    }
+    
+
+  /***************/
+ /* main visual */
+/***************/
+    
+    #main-visual {
+        margin-top: 50px;
+        height: 400px;
+    }   
+    #slide li:nth-child(1) {
+        background: url("../images/t_slide_01.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(2) {
+        background: url("../images/t_slide_02.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(3) {
+        background: url("../images/t_slide_03.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(4) {
+        background: url("../images/t_slide_04.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(5) {
+        background: url("../images/t_slide_05.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(6) {
+        background: url("../images/t_slide_06.jpg") no-repeat center/cover;
+    }
+    
+    
+    /* 블릿버튼 스타일링 */ 
+    .bullet_box {
+        bottom: 10px;
+        right: 25px;
+    }
+    .bullet_box a {
+        width: 20px;
+        height: 20px;
+    }
+    .bullet_box a + a {
+        margin-left: 5px;
+    }
+    
+    
+    /* 슬라이드 stop, play 버튼(.autoplay_box) 스타일링*/
+    .autoplay_box {
+        bottom: 10px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    #main-visual .btn_guide {
+        width: calc(100% - 40px);
+        max-width: 900px;
+    }
+    
+/* main visual end */
+
+
+  /************************/
+ /*  main basic styling  */
+/************************/
+    
+    #page-main > div:first-child {
+        margin-top: 40px;
+    }
+    #page-main section h3,
+    #page-main .main_guide3 .width_guide h3 {
+        font-size: 28px;
+        font-size: 2.8rem;
+        line-height: 1.428571;
+        text-align: center;
+        margin-bottom: 31px;
+    }
+    
+ /*****************************/
+ /*    main guide styling    */
+/****************************/    
+
+    .main_guide1 {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        margin: 0 auto 50px;
+    }
+    .main_guide1 section {
+        width: 100%;
+        max-width: 900px;
+        margin-bottom: 50px;
+    }
+    .main_guide1 .new,
+    .main_guide1 #sns_tab,
+    .main_guide1 .movie,
+    .main_guide1 #sns_insta{
+        float: none;
+    }
+    .main_guide1 section > div {
+        max-height: 300px;
+         max-width: 900px;
+        box-sizing: border-box;
+    }
+    
+  /********************/
+ /*    신제품 소식     */
+/********************/
+    
+    .new .sbox {
+        max-width: 900px;
+        max-height: 300px;
+        border: 2px solid #ff6600;
+    }
+    
+  /******************/
+ /*    영상광고     */
+/******************/    
+    
+    .movie .mbox {
+        max-width: 900px;
+        max-height: 300px;
+        background-color: #000;
+    }
+    .movie .mbox .inner {}
+    .movie .mbox .inner > div {
+        max-width: 500px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .movie .mbox .inner > div iframe {
+        position: static;
+    }
+    
+ /************************/
+ /*    국순당 제품소개     */
+/************************/
+    
+    .main_guide2 {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        margin: 0 auto 50px;   
+    }
+    .main_guide2 .products .pbox {
+        position: relative;
+        height: 380px;
+    }
+    
+/************ 왼쪽 버튼리스트 스타일 *******************/
+    
+    .product_list {
+        float: none;
+        width: calc(100% + 40px);
+        max-width: 940px;
+        height: 50px;
+        margin-left: -20px;
+        box-sizing: border-box;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+    .product_list li {
+        width: calc(16.77% - 1px);
+        float: left;
+        font-size: 18px;
+        font-size: 1.8rem;
+        line-height: 2.7;
+        border-bottom: 1px solid #ccc;
+    }
+    .product_list li + li {
+        border-left: 1px solid #ccc;
+    }
+    
+    /************ 제픔리스트 공통 스타일 ***************/
+    
+    .product_slide {
+        top: 30px;
+        float: none;
+        width: calc(100% - 40px);
+        max-width: 860px;
+        height: 300px;
+    }
+    .product_slide .plist_guide ul li {
+        height: 100%;
+    }
+    .product_slide .plist_guide ul li a img {
+        height: 250px;
+    }
+    
+  /********************************/
+ /*  주향로 / 우리술교육  styling   */
+/*********************************/
+    
+    .main_guide3 {
+        height: 600px;
+        margin-bottom: 50px;
+    }
+    .main_guide3 section {
+        width: 100%;
+        height: 300px;
+        float: none;
+    }
+    .main_guide3 section:nth-child(2) {
+        top: 0;
+        height: 300px;
+    }
+    .joo_txtbox,
+    .edu_txtbox,
+    .g_txtbox,
+    .con_txtbox {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        margin-top: 40px;
+    }
+    .education a .edu_txtbox,
+    .contribution a .con_txtbox {
+        margin-left: -5px;
+        text-align: right;
+    }
+    .education a .edu_txtbox h3,
+    .contribution a .con_txtbox h3 {
+        text-align: right !important; /*미디어쿼리에서 추가!*/
+    }
+    .width_guide {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        top: -600px;
+    }
+    .width_guide .joo_txtbox h3,
+    .width_guide .g_txtbox h3 {
+        text-align: left !important;
+        margin-bottom: 20px !important;
+    }
+    
+/**********************/
+/* 국순당 소식 & 이벤트 */
+/*********************/
+    
+
+    .news li:hover a .news_img {
+        transform: scale(1);
+    }
+    .news li a p {
+        height: 60px;
+        -webkit-line-clamp: 3;
+    }
+    
+      /*******************/
+     /*   instagram     */
+    /*******************/
+    
+    #sns_tab {
+        display: none;
+    }
+   
+    #sns_insta .sns_cont {
+        max-height: 300px;
+    }
+    #sns_insta h3 {
+        margin-bottom: 30px;
+    }
+    #sns_insta h3::after {
+       display: none;
+    }
+    /* 인스타그램 타이틀 스타일링 여기까지 */
+    
+    #sns_insta li a {
+        opacity: 1;
+    }
+    #sns_insta li:hover a {
+        transform: scale(1);
+    }
+    
+    /* 인스타그램 팔로우 하러가기 버튼 스타일링*/
+    .insta_btn {
+        top: 10px;
+        font-size: 14px;
+        font-size: 1.4rem;
+    }
+    
+      /******************************/
+     /*  녹색기업 / 사회공헌 styling */
+    /******************************/
+    
+    .main_guide3 .green {
+        height: 300px;
+    }
+    .main_guide33 .width_guide {
+        top: -600px;
+    }
+    
+    
+      /************************/
+     /*    footer styling   */
+    /************************/
+
+    #page-footer .f_guide {
+        width: calc(100% - 40px);
+        max-width: 900px;
+        padding: 30px 0 36px;
+    }
+    
+    /* footer 상단 왼쪽 스타일링 */
+    .f_info {
+        float: none;
+        text-align: center;
+    }
+    .f_info .f_logo {
+        width: 124px;
+        height: 60px;
+        margin: 0 auto 30px;
+    }
+    .f_info ul {
+       margin: 0 auto 15px;
+        widows: 100%;
+        max-width: 395px;
+    }
+    .f_info ul li:last-child {
+        display: none;
+    }
+    .f_info ul li + li {
+        margin-left: 5%;
+    }
+    .f_info address {
+        width: 100%;
+        top: 128px
+    }
+    
+    /* footer 상단 오른쪽 스타일링 */
+    .f_contact {
+        float: none;
+        max-width: 540px;
+        margin: 30px auto 0;
+    }
+    
+    /* 국순당 패밀리사이트 바로가기 스타일링 */
+    
+    .f_contact .f_site {
+        width: 50%;
+        top: -191px;
+        left: 0;
+    }
+
+    /* sns 바로가기 버튼 스타일링*/
+    .f_contact .f_sns {
+         margin-bottom: 0;
+        margin-top: 0;
+        float: right;
+    }
+    .f_contact .f_sns li + li {
+        margin-left: 10px;
+    }
+    
+    /* footer 맨 마지막 */
+    #page-footer .copy_box {
+        padding: 19px 0 30px;
+        border-top: 1px solid #666;
+        text-align: center;
+    }    
+    
+}  /*///////////media 940px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+
+  /*/////////////////////////*/
+ /* 컨텐츠 600px 양옆 20씩 여백*/
+/*/////////////////////////*/
+
+@media only screen and (max-width:640px) {
+    
+    .container {
+        max-width: 600px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(255, 0, 255, 0.9) 90%),
+                  linear-gradient(90deg, rgba(0, 0, 0, 0.08) 50%, rgba(255, 255, 0, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+    }
+
+    #page-header .header_guide {
+        max-width: 600px;
+    }
+    #page-main section h3,
+    #page-main .main_guide3 .width_guide h3 {
+        margin-bottom: 20px;
+    }
+    
+    
+    /************************/
+     /*    국순당 제품소개     */
+    /************************/
+    
+    .main_guide2 {
+        width: calc(100% - 40px);
+        max-width: 600px;
+    }
+    .main_guide2 .products .pbox {
+        height: 370px;
+    }
+    
+    /************ 왼쪽 버튼리스트 스타일 *******************/
+    
+    .product_list {
+        height: 80px;
+        border-bottom: none;
+    }
+    .product_list li {
+        width: calc(33.4% - 1px);
+        line-height: 2.2;
+    }
+    .product_list li:nth-child(4) {
+        border-left: none;
+    }
+    
+     /************ 제픔리스트 공통 스타일 ***************/
+    
+    .product_slide {
+        top: 30px;
+        max-width: 560px;
+        height: 260px;
+    }  
+    .product_slide .plist_guide {
+         height: 260px;  
+    }
+    .product_slide .plist_guide ul {
+        width: 300%;
+    }
+    .product_slide .plist_guide ul li {
+        width: 11.111111%;   
+    }
+    .product_slide .plist_guide ul li a img {
+       height: 220px;
+    }
+    .product_slide .plist_guide ul li a span {
+        margin-top: 20px;
+    }
+    
+    /**********************/
+    /* 국순당 소식 & 이벤트 */
+    /*********************/
+    
+    .news li {
+        width: 49%;
+        max-width: 284px;
+    }
+    .news li:nth-child(3) {
+        margin-left: 0;
+    }
+    .news li:nth-child(3),
+    .news li:nth-child(4) {
+        margin-top: 10px;
+    }
+    .news li a:nth-of-type(1) {
+        margin-bottom: 20px;
+    }
+    .news li a h4 {
+        text-align: center;
+    }
+    .news li a p {
+        display: none;
+    }
+
+      /*******************/
+     /*   instagram     */
+    /*******************/
+    #sns_insta {
+        margin-top: -30px;
+    }
+    
+      /************************/
+     /*    footer styling   */
+    /************************/
+    
+    #page-footer .f_guide {
+        max-width: 600px;
+    }
+    
+    .f_info address {
+        display: none;
+    }
+    
+    /* footer 상단 오른쪽 스타일링 */
+    
+    .f_contact {
+        margin-top: 25px;
+    }
+
+}  /*///////////media 640px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+   /*/////////////////////////*/
+  /* 컨텐츠 480px 양옆 15씩 여백*/
+ /*/////////////////////////*/
+
+@media only screen and (max-width:480px) {
+    
+    .container {
+        width: calc(100% - 30px);
+        max-width: 450px;
+    }
+    .container:before, .container::before {
+      background: linear-gradient(180deg, transparent 90%, rgba(0, 255, 0, 0.9) 90%),
+                  linear-gradient(90deg, rgba(239, 64, 15, 0.15) 50%, rgba(0, 255, 255, 0.05) 50%);
+      background-size: 1px 10px, 20% 1px;
+    }
+
+    
+    /* 헤더부분 스타일링 */
+    
+    #page-header .header_guide {
+        width: calc(100% - 30px);
+        max-width: 450px;
+    }
+    .mobile_btn {
+        right: 15px !important;
+    }
+    
+  /***************/
+ /* main visual */
+/***************/
+      
+    #slide li:nth-child(1) {
+        background: url("../images/m_slide_01.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(2) {
+        background: url("../images/m_slide_02.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(3) {
+        background: url("../images/m_slide_03.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(4) {
+        background: url("../images/m_slide_04.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(5) {
+        background: url("../images/m_slide_05.jpg") no-repeat center/cover;
+    }
+    #slide li:nth-child(6) {
+        background: url("../images/m_slide_06.jpg") no-repeat center/cover;
+    }
+    /* main visual end */
+    
+    
+    /*prev/ next 버튼 styling*/
+    
+    #main-visual .btn_guide {
+        width: calc(100% - 30px);
+        max-width: 450px;
+    }
+    
+ 
+     /************************/
+     /*  main basic styling  */
+    /************************/
+
+    #page-main section .more {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        display: block;
+        color: rgba(255,255,255,0);
+    }
+    #page-main section .more:after,
+    #page-main section .more::after {
+        right: -8px;
+        top: 5px;
+    }
+    
+     /*****************************/
+     /*    main guide styling    */
+    /****************************/ 
+    
+    .main_guide1 {
+        width: calc(100% - 30px);
+        max-width: 450px;
+        margin: 0 auto 40px;
+    }
+    .main_guide1 section {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    .main_guide1 section > div {
+        max-width: 100%;
+    }
+    
+      /********************/
+     /*    신제품 소식     */
+    /********************/
+    
+    .new .sbox {
+        border: 1px solid #ff6600;
+    }
+    .new .sbox h4 {
+        top:12%;
+        font-size: 18px;
+        font-size: 1.8rem;
+        height: 50px;
+    }
+    .new .sbox p {
+        top:40%;
+        -webkit-line-clamp: 5; 
+        height: 105px;
+    }
+    
+    
+    /************************/
+     /*    국순당 제품소개     */
+    /************************/
+
+    .main_guide2 {
+        width: calc(100% - 30px);
+        max-width: 450px;   
+    }
+    .main_guide2 .products .pbox {
+        height: 320px;
+    }
+    
+    /************ 왼쪽 버튼리스트 스타일 *******************/
+    
+    .product_list {
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        max-width: 480px;
+    }
+    .product_list li {
+        width: calc(33.5% - 1px);
+    }
+
+    /************ 제픔리스트 공통 스타일 ***************/
+    
+    .product_slide {
+        top: 20px;
+        width: calc(100% - 30px);
+        max-width: 420px;
+        height: 220px;
+        margin: 0 15px;
+    }
+    .product_slide .plist_guide {
+        height: 100%;
+    }
+    .product_slide .plist_guide ul li {
+        height: 100%;
+    }
+    .product_slide .plist_guide ul li a img {
+       height: 185px;
+    }
+    .product_slide .plist_guide ul li a span {
+        margin-top: 15px;
+        font-size: 14px;
+        font-size: 1.4rem;
+    }
+    
+    /************ 제품 슬라이드 이동버튼(화살표) 스타일링 *******************/
+
+    .product_slide .plist_btn {
+        width: 15px;
+        padding-top: 75px !important;
+    }
+    .product_slide .plist_btn::after {
+        width: 15px;
+        height: 30px;
+        background-size: 376px 35px;
+    }
+    .product_slide .plist_prev {
+        left: -15px;
+    }
+    .product_slide .plist_prev::after {
+        background-position: -55px 0;
+    }
+    .product_slide .plist_next {
+        right: -15px;
+    }
+    .product_slide .plist_next::after {
+        background-position: -39px 0;
+    }
+    
+     /********************************/
+     /*  주향로 / 우리술교육  styling   */
+    /*********************************/
+    
+    .main_guide3 {
+        height: 380px;
+        margin-bottom: 40px;
+    }
+    .main_guide3 section {
+        height: 190px;
+    }
+    .joohyangro {
+        height: 190px !important;
+    }
+    .main_guide3 section:nth-child(2) {
+        height: 190px;
+    }
+    .joo_txtbox,
+    .edu_txtbox,
+    .g_txtbox,
+    .con_txtbox {
+        width: calc(100% - 30px);
+        max-width: 450px;
+        margin-top: 20px;
+    }
+    .education a .edu_txtbox,
+    .contribution a .con_txtbox {
+        right: 15px;
+    }
+    
+    .width_guide {
+        width: calc(100% - 30px);
+        max-width: 450px;
+        top: -380px;
+    }
+    .main_guide3 section a h3 {
+        margin-bottom: 10px !important;
+    }
+    .main_guide3 .width_guide div h3 {
+        margin-bottom: 10px !important;
+    }
+    
+    
+    /**********************/
+    /* 국순당 소식 & 이벤트 */
+    /*********************/
+    
+    .news li:nth-child(3),
+    .news li:nth-child(4) {
+        margin-top: 0;
+    }
+    .news li a:nth-of-type(1) {
+        margin-bottom: 10px;
+    }
+    
+      /*******************/
+     /*   instagram     */
+    /*******************/
+    
+    #sns_insta .sns_cont::before {
+      padding-top: 69%;
+    }
+    #sns_insta li {
+        width: 32%;
+        height: 32%;
+    }
+    #sns_insta li:nth-child(4) {
+        margin-left: 0;
+        margin-top: 2%;
+    }
+    #sns_insta li:nth-child(5) {
+        margin-left: 2%;
+    }
+    #sns_insta li:nth-child(7) {
+        margin-left: 0;
+    }
+    
+    /* 인스타그램 팔로우 하러가기 버튼 스타일링*/
+    
+    .insta_btn {
+        bottom: 0;
+        top:76%;
+        padding: 0;
+        width: 32%;
+        padding-top: 8%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
+    
+      /******************************/
+     /*  녹색기업 / 사회공헌 styling */
+    /******************************/
+    
+    .main_guide3 .green {
+        height: 190px;
+    }
+    .main_guide33 .width_guide {
+        top: -380px;
+    }
+    
+     /************************/
+     /*    footer styling   */
+    /************************/
+
+    #page-footer {
+        margin-top:0;
+    }
+    
+    #page-footer .f_guide {
+        width: calc(100% - 30px);
+        max-width: 450px;
+        height: 240px;
+        padding: 20px 0 40px;
+    }
+    /* footer 상단 왼쪽 스타일링 */
+    .f_info {
+        height: 130px;
+    }
+    .f_info .f_logo {
+        height: 40px;
+        width: 83px;
+    }
+    
+    .f_info ul {
+        margin: -10px auto 15px;
+        width: 210px;
+    }
+    .f_info ul li {
+        text-align: center;
+    }
+    .f_info ul li:nth-child(3) {
+        padding-left: 20px;
+    }
+    .f_info ul li:nth-child(3),
+    .f_info ul li:nth-child(4) {
+        margin-top: 7px;
+    }
+    
+    
+    /* footer 상단 오른쪽 스타일링 */
+    .f_contact {
+        position: relative;
+        top: -25px;
+        width: 100%;
+        height: 120px;
+    }
+    .f_contact .f_site {
+        width: 100%;
+    }
+    
+    /* sns 바로가기 버튼 스타일링*/
+
+    .f_contact .f_sns {
+        float: none;
+        position: absolute;
+        top:  60px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 198px;
+    }
+    
+     /* footer 맨 마지막 */
+    #page-footer .copy_box {
+        box-sizing: border-box;
+        padding: 21px 0 21px;
+        border-top: 1px solid #666;
+    }
+    
+}  /*///////////media 480px/////////////*/
+/*//////////////////////////////////////*/
+
+
+
+

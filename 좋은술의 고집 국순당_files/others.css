@@ -1,0 +1,1221 @@
+/*! main.css © hw. 2018 */
+@charset "utf-8";
+@import url("common.css");
+
+.cont_all {
+    padding-top: 168px;
+}
+.cont_all h3 {
+    font-size: 54px;
+    font-size: 5.4rem;
+    line-height: 1.17965;
+    font-weight: 400;
+    color: #600;
+    text-align: center;
+    margin-bottom: 63px;
+}
+
+.inner_title {
+    margin-bottom: 42px;
+}
+.sub_title {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-size: 35px;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 0;
+    color: #ff6600;
+}
+.sub_title em {
+    font-weight: 700;
+}
+.sub_title2 {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-size: 28px;
+    font-size: 2.8rem;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 0;
+    color: #999;
+}
+
+h4 {
+    font-size: 22px;
+    font-size: 2.2rem;
+    font-weight: 400px;
+    line-height: 1.90909;
+    color: #ff9900;
+}
+.sub_p {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: justify;
+    letter-spacing: 0;
+    color: #666;
+    margin-bottom: 21px;
+}
+.sub_p2 {
+    font-family: 'NanumBarunGothic',AppleSDGothicNeo-Regular,"돋움",'Roboto', sans-serif;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.3125;
+    color: #666;
+    margin-bottom: 21px;
+}
+.end {
+    margin-bottom: 0;
+}
+
+.width1 { /*대표이사 인사말 첫번째 p 12/7*/
+    width: 58.333333%;
+}
+.width2 { /* 사회공헌 p */
+    width: calc(100% - 437px);
+}
+
+/* 상단 탭 스타일링 */
+
+.tab_btn {
+    height: 42px;
+    margin-bottom: 42px;
+}
+.tab_btn ul {
+    width: calc(100% - 2px);
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.tab_btn ul > li {
+    float: left;
+    text-align: center;
+    font-size: 22px;
+    font-size: 2.2rem;
+    line-height: 42px;
+    color: #ccc;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.tab_btn ul > li + li {
+    border-left: 1px solid #ccc;
+}
+.tab_btn ul > li.select_tab {
+    color: #333;
+    cursor: default;
+}
+
+
+.tab_cont {
+    height: auto;
+}
+.tab_cont > ul > li {
+    display: none;
+}
+.tab_cont > ul > li.select_cont {
+    display: block;
+/*    z-index: 1;*/
+}
+
+
+/* 페이지별 개별 탭 사이즈 설정 CSS */
+.tab_history > li { /* 회사소개 > 걸어온 길  */
+    width: calc(25% - 1px);
+}
+.tab_map > li { /* 회사소개 > 회사위치  */
+    width: calc(16.666666% - 1px);
+}
+.tab_special > li { /* 우리술 이야기 > 국순당 술의 특징  */
+    width: calc(25% - 1px);
+}
+.tab_ad > li { /* 홍보센터 > 광고자료  */
+    width: calc(50% - 1px);
+}
+
+
+/* 페이지별 개별 백그라운드 설정 CSS */
+.c_story {  /* 회사소개 > 국순당 이야기  */
+    background: url("../images/company/bg_story.jpg") no-repeat right bottom/486px 252px;
+}
+.c_ceo {  /* 회사소개 > 대표이사 인사말  */
+    background: url("../images/company/bg_ceo.jpg") no-repeat right 126px/513px 483px;
+}
+.w_recover {  /* 우리술 이야기 > 우리술 복원사업  */
+    background: url("../images/woorisool/bg_wrs_recover.jpg") no-repeat right 147px/410px 240px;
+}
+
+/* 회사소개 > 걸어온 길 CSS */
+.tab_title {
+    font-size: 35px;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 300;
+    text-align: center;
+    color: #999;
+    margin-bottom: 41px;
+}
+.tab_title span {
+    color: #ff6600;
+}
+
+.sub_history {
+    box-sizing: border-box;
+}
+.show_history dl {
+    position: relative;
+    height: auto;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+.show_history dl:first-child {
+    border-top: 1px solid #ccc;
+}
+.show_history dl dt {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    width: 25%;
+    padding: 0 25px;
+    font-size: 35px;
+    font-size: 3.5rem;
+    line-height: 1.8;
+    color: #ff9900;
+}
+.show_history dl dt span {
+    position: absolute;
+    display: block;
+    width: 18px;
+    height: 10px;
+    top: 27px;
+    right: 25px;
+    background-position: -130px -32px;
+}
+.show_history dl dd {
+    float: right;
+    width: calc(75% - 25px);
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.166666;
+    color: #666;
+    border-top: 1px solid #ccc;
+    padding: 21px 0;
+}
+.show_history dl dd:first-of-type {
+    border-top: 0;
+}
+.show_history dl dd em {
+    position: absolute;
+    font-weight: 400;
+    height: 100%;
+}
+
+.show_history dl dd span {
+    display: block;
+    margin-left: 57px;
+}
+.show_history dl dd span + span {
+        margin-top: 22px;
+}
+
+.close_history { /* 클릭한 년도 dl css */
+    height: 62px !important;
+    overflow: hidden;
+}
+.close_history dt { /* 클릭한 년도 dt css */
+    color: #666 !important;
+}
+.close_history dt span {
+    background-position: -150px -32px !important;
+}
+
+
+
+/* 회사소개 > 주향로 CSS */
+.c_jhr .middle_img {
+    width: 100%;
+    max-width: 1050px;
+    max-height: 315px;
+    background: url("../images/company/bg_jhr.jpg") no-repeat center/cover;
+    margin-bottom: 21px;
+    border-radius: 10px;
+}
+.c_jhr .middle_img::before {
+    content: "";
+    display: block;
+    padding-top: 30%;
+}
+
+.call {
+    box-sizing: border-box;
+    border: 1px solid #660000;
+    padding: 21px 42px;
+    height: 148px;
+    margin-top: 42px;
+}
+.call dl,
+.call .go_site {
+    float: left;
+}
+.call dl {
+    box-sizing: border-box;
+    width: calc(100% - 300px);
+    height: 84px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.call dl dt {
+    position: relative;
+    float: left;
+    line-height: 1.47456;
+    font-size: 43px;
+    font-size: 4.3rem;
+    font-weight: 700;
+    color: #ff9900;
+    padding-left: 99px;
+    margin-right: 15px;
+}
+.call dl dt::after {
+    content: "";
+    display: block;
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    background-position: 0 -50px;
+}
+.call dl dd {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: #666;
+    white-space: nowrap;
+}
+.call dl dd a {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: #666;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+.call dl dd a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+.call .go_site {
+    position: relative;
+    display: block;
+    background-color: #ff9900;
+    border-radius: 10px;
+    font-size: 28px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    padding: 0.857142em 3.178571em 0.75em 1em;
+}
+.call .go_site::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 31px;
+    right: 28px;
+    background-position: -172px -50px;
+}
+
+/* 회사소개 > 회사위치 */
+.sub_map li {
+/*    outline: 1px solid salmon;*/
+}
+.sub_map li .box + .box {
+    padding-top: 21px;
+    margin-top: 42px;
+    border-top: 1px solid #ccc;
+}
+.contact {
+    margin-bottom: 27px;
+}
+.contact dl {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.7;
+}
+.contact dt,
+.contact dd {
+    float: left;
+}
+.contact dt {
+    width: 82px;
+    color: #ff9900;
+    margin-right: 20px;
+}
+.contact dd {
+    font-weight: 300;
+    color: #666;
+}
+
+.map {
+    width: 100%;
+    height: 483px;
+}
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 우리술 이야기 > 우리술교육 CSS */
+.wrs_edu li {
+    float: left;
+    max-width: 240px;
+    width: 22.857142%;
+}
+.wrs_edu li + li {
+    margin-left: 2.857142%; /* 30px */
+}
+.wrs_edu li div {
+    position: relative;
+    max-height: 210px;
+    max-width: 100%;
+}
+.wrs_edu li div::before {
+    content: "";
+    display: block;
+    padding-top: 87.5%;
+} 
+.wrs_edu li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.wrs_edu li p {
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    letter-spacing: -0.05em;
+    margin-top: 14px;
+}
+.wrs_edu li p span {
+    color: #ff9900;
+}
+
+/* 국순당 술의  특징 > 설갱미 소개 > 설갱미란? */
+
+.sub_special h4 {
+    margin-bottom: 21px;
+    color: #333;
+}
+.wrs_special01 {
+    min-height: 294px;
+    background: url("../images/woorisool/bg_wrs_special_01.jpg") no-repeat right top/263px 294px;
+    margin-bottom: 42px;
+}
+.wrs_line div {
+    box-sizing: border-box;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #666;
+    border-top: 1px solid #ccc;
+    width: calc(100% - 293px);
+}
+.wrs_line div dl {
+    border-bottom: 1px solid #ccc;
+    padding-top: 9px;
+    padding-bottom: 5px;
+}
+.wrs_line div dl dt {
+    font-weight: 400;
+    color: #ff9900;
+    padding: 0 20px 0 10px;
+    float: left;
+}
+.wrs_special01 div dl dt {
+    width: 105px;
+}
+.wrs_special01 div dl dd {
+    white-space: normal;
+    width: calc(100% - 135px);
+    margin-left: 135px;
+}
+.wrs_special02 {
+    width: 100%;
+    max-width: 1050px;
+    max-height: 343px;
+    background: url("../images/woorisool/bg_wrs_special_02.jpg") no-repeat center/cover;
+}
+.wrs_special02::before {
+    content: "";
+    display: block;
+    padding-top: 32.666666%;
+}
+
+.wrs_special03 {
+    background: url("../images/woorisool/bg_wrs_special_03.jpg") no-repeat right top/350px 241px;
+}
+.wrs_special03 div {
+    float: left;
+    width: calc(100% - 380px);
+} 
+
+.wrs_special03 div dl dt {
+    width: 137px;
+}
+.wrs_special03 div dl dd {
+    display: block;
+    margin-left: 167px;
+}
+.wrs_special04 {
+    width: 100%;
+    max-width: 1050px;
+    max-height: 370px;
+    background: url("../images/woorisool/bg_wrs_special_04.jpg") no-repeat center/cover;
+}
+.wrs_special04::before {
+    content: "";
+    display: block;
+    padding-top: 35.238095%;
+}
+
+.wrs_special05 .sub_p,
+.wrs_special06 .sub_p,
+.wrs_special07 .sub_p {
+    float: left;
+    width: 47.142857%;
+}
+.wrs_special05 .sub_img,
+.wrs_special06 .sub_img,
+.wrs_special07 .sub_img {
+    float: right;
+    width: 50%;
+    max-width: 525px;
+    margin-top: -42px;
+}
+.wrs_special05 .sub_img::before,
+.wrs_special06 .sub_img::before,
+.wrs_special07 .sub_img::before {
+    content: "";
+    display: block;
+}
+.wrs_special05 .sub_img {
+    background: url("../images/woorisool/bg_wrs_special_05.jpg") no-repeat center/cover;
+}
+.wrs_special05 .sub_img::before {
+    padding-top: 43.809523%;
+}
+.wrs_special06 .sub_img {
+    background: url("../images/woorisool/bg_wrs_special_06.jpg") no-repeat center/cover;
+}
+.wrs_special06 .sub_img::before {
+    padding-top: 48%;
+}
+.wrs_special07 .sub_img {
+    background: url("../images/woorisool/bg_wrs_special_07.jpg") no-repeat center/cover;
+}
+.wrs_special07 .sub_img::before {
+    padding-top: 22.47619%;
+}
+
+
+
+/* 사회공헌 CSS */
+.c_guide1, 
+.c_guide2, 
+.c_guide3 {
+    position: relative;
+}
+.c_guide1 .cont_bg, 
+.c_guide2 .cont_bg, 
+.c_guide3 .cont_bg {
+    position: absolute;
+    right: 0;
+    top: 38px;
+    max-width: 407px;
+    width: 38.761904%;
+}
+.c_guide1 .cont_bg {
+    max-height: 213px;
+    background: url("../images/contribution/cont_01.jpg") no-repeat center/cover;
+}
+.c_guide1 .cont_bg::before,
+.c_guide2 .cont_bg::before,
+.c_guide3 .cont_bg::before,
+.c_guide4::before {
+    content: "";
+    display: block;
+}
+.c_guide1 .cont_bg::before {
+    padding-top: 52.334152%;
+}
+.c_guide2 .cont_bg {
+    max-height: 182px;
+    background: url("../images/contribution/cont_02.jpg") no-repeat center/cover;
+}
+.c_guide2 .cont_bg::before {
+    padding-top: 44.717444%;
+}
+.c_guide3 .cont_bg {
+    top: 17px;
+    max-height: 336px;
+    background: url("../images/contribution/cont_03.jpg") no-repeat center/cover;
+}
+.c_guide3 .cont_bg::before {
+    padding-top: 82.555282%;
+}
+.c_guide4 {
+    width: 100%;
+    max-width: 1050px;
+    max-height: 220px;
+    background: url("../images/contribution/cont_04.jpg") no-repeat center/cover;
+}
+.c_guide4::before {
+    padding-top: 20.952381%;
+}
+
+
+/* 녹색기업 CSS */
+.green .middle_img {
+    width: 100%;
+    max-width: 1050px;
+    max-height: 357px;
+    background: url("../images/contribution/green_01.jpg") no-repeat center/cover;
+    margin-bottom: 21px;
+}
+.green .middle_img::before {
+    content: "";
+    display: block;
+    padding-top: 34%;
+}
+.tale {
+    position: relative;
+    box-sizing: border-box;
+    padding: 21px 30px;
+    margin-bottom: 21px;
+    border-radius: 10px;
+    background-color: #ccc;
+}
+.tale::before {
+    content: "";
+    display: block;
+    width: 155px;
+    height: 83px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    margin: auto 0;
+    background: url("../images/contribution/green_02.jpg") no-repeat center/cover;
+}
+.tale strong {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    font-weight: 700;
+    color: #333;
+}
+.tale .sub_p {
+   width: calc(100% - 155px);
+}
+
+.g_guide li {
+    float: left;
+    max-width: 330px;
+    width: 31.428571%;
+}
+.g_guide li + li {
+    margin-left: 2.857142%;
+}
+.g_guide li div {
+    position: relative;
+    max-height: 210px;
+    max-width: 100%;
+}
+.g_guide li div::before {
+    content: "";
+    display: block;
+    padding-top: 63.636363%;
+}
+.g_guide li div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.g_guide li span {
+    display: block;
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    letter-spacing: -0.05em;
+    margin-top: 14px;
+}
+
+/* 홍보센터 > 국순당소식 / 인재채용 > 채용공고 */
+table {
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 3.45;
+    color: #666;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+table thead {
+    font-weight: 400;
+    color: #333;
+    background-color: #f0f0f0;
+}
+table tr {
+    border-bottom: 1px solid #ccc;
+}
+table tr th {
+    text-align: center;
+}
+table tr th:nth-of-type(1), 
+table tr td:nth-of-type(1),
+table tr th:nth-of-type(4), 
+table tr td:nth-of-type(4) {
+    width: 88px;
+    text-align: center;
+}
+table tr th:nth-of-type(3), 
+table tr td:nth-of-type(3) {
+    width: 175px;
+    text-align: center;
+}
+table tr a {
+    padding-left: 25px;
+    display: block;
+    transition: all 0.3s;
+}
+table tr a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+/* 홍보센터 > 광고자료 */
+
+.sub_ad > li {
+    position: relative;
+}
+.ad_movie .movie {
+    display: block;
+    max-width: 510px;
+    width: 48.571428%;
+    float: left;
+    margin-top: 42px;
+    overflow: hidden;
+}
+.ad_movie .movie:nth-child(even) {
+    float: right;
+}
+.ad_movie .movie:nth-child(1),
+.ad_movie .movie:nth-child(2) {
+    margin-top: 0;
+}
+.ad_movie .movie div {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.ad_movie .movie div::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+.ad_movie .movie div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ad_movie .movie span, 
+.ad_print .print span {
+    font-size: 22px;
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 1.90909;
+    color: #666;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    transition: all 0.3s;
+}
+.ad_movie .movie:hover span, 
+.ad_print .print:hover span {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+.ad_print .print {
+    display: block;
+    max-width: 330px;
+    width: 31.428571%;
+    float: left;
+    margin-top: 42px;
+    overflow: hidden;
+}
+.ad_print .print:nth-child(1),
+.ad_print .print:nth-child(2),
+.ad_print .print:nth-child(3) {
+    margin-top: 0;
+}
+.ad_print .print:nth-child(4),
+.ad_print .print:nth-child(7) {
+    margin-left: 0;
+}
+.ad_print a + a {
+    margin-left: 2.857142%;
+}
+.ad_print .print div {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+.ad_print .print div::before {
+    content: "";
+    display: block;
+    padding-top: 136.666667%;
+}
+.ad_print .print img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.ad_print .print:nth-child(7) img {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* 영상 누르면 나오는 큰 창 */
+#dpbg, 
+#dpbg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+}
+#dpbg::before,
+#dpbg2::before {/*반투명 배경*/
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.9;
+}
+.cbtn{ /* 닫기버튼 */
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-position: -318px -50px;
+}
+#dpbox { /* iframe 담는 박스 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);/*중앙이동*/
+    width: calc(100% - 50px);
+    max-width: 1050px;
+	margin-left: auto;
+	margin-right: auto;
+    background-color: #000;
+    z-index: 99999;
+    display: none;
+}
+#dpbox::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+} 
+#dpbox iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+#dpbox2 { /* 팝업된 인쇄광고 담는 박스  */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);/*중앙이동*/
+    max-width: 500px;
+    width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+    background-color: #fff;
+    z-index: 99999;
+    display: none;
+}
+#dpbox2::before {
+    content: "";
+    display: block;
+    padding-top: 136.666667%;
+}
+#dpbox2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* 홍보센터 > 고객상담실 */
+.cs {
+    box-sizing: border-box;
+    border: 1px solid #660000;
+    padding: 21px 5%;
+    height: 147px;
+    margin-bottom: 41px;
+}
+.cs dl {
+    position: relative;
+    box-sizing: border-box;
+    width: 50%;
+    height: 84px;
+    padding-left: 99px;
+    margin-top: 10px;
+    float: left;
+}
+.cs dl::after {
+    content: "";
+    display: block;
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: 0 -50px;
+}
+.cs dl:last-child::after {
+    background-position: -86px -50px;
+}
+.cs dl dt {
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.777777;
+    color: #333;
+}
+.cs dl:first-child dd {
+    line-height: 1.3;
+    font-size: 43px;
+    font-size: 4.3rem;
+    font-weight: 700;
+    color: #ff9900;
+    white-space: nowrap;
+}
+.cs dd a {
+    position: relative;
+    display: block;
+    background-color: #ff9900;
+    border-radius: 10px;
+    font-size: 28px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    padding: 0.642857em 0 0.464285em 0.535714em;
+}
+.cs dd a::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 9px;
+    right: 20px;
+    background-position: -172px -50px;
+}
+
+.cs_box {
+    position: relative;
+    padding-top: 63px;
+}
+.list_open {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    height: 42px;
+    width: 130px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20px;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 42px;
+    text-align: center;
+}
+.cs_list dl {
+    box-sizing: border-box;
+}
+.cs_list dl:last-child {
+     border-bottom: 1px solid #ccc;
+}
+.cs_list dl dt {
+    position: relative;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.166666;
+    color: #333;
+    white-space: nowrap;
+    height: 63px;
+    padding: 21px 25px;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+    transition: all 0.3s;
+}
+.cs_list dl:hover dt {
+    color: #ff9900;
+}
+.cs_list dl:first-child dt {
+    border-top: 2px solid #660000;
+}
+.cs_list dl dt em {
+    font-weight: 700;
+    color: #ff9900;
+    margin-right: 15px;
+}
+.cs_list dl dt .icon {
+    position: absolute;
+    right: 25px;
+    top: 21px;
+    width: 21px;
+    height: 21px;
+    background-position: -216px -50px;
+}
+.cs_list dl dd {
+    position: relative;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    padding: 41px 8.333333% 42px 174px;
+    min-height: 126px;
+    display: none;
+}
+.cs_list dl dd::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 42px;
+    left: 60px;
+    width: 54px;
+    height: 42px;
+    background-position: -262px -50px;
+}
+
+.pagination {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-size: 2.2rem;
+    line-height: 1.90909;
+    width: 50%;
+    margin: 84px auto 0;
+}
+.pagination .page-numbers {
+    display: block;
+    text-align: center;
+    float: left;
+    width: 16.666666%;
+}
+.pagination .prev,
+.pagination .next {
+    position: relative;
+    text-indent: -999999px;
+}
+.pagination .prev::after,
+.pagination .next::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: -170px -32px;
+}
+.pagination .prev::after {
+    display: none;
+}
+.pagination .next::after {
+    background-position: -182px -32px;
+}
+.pagination .current {
+    color: #ff9900;
+}
+
+/* 인재채용 > 인재상 */
+.rcrt_talent {
+    position: relative;
+    width: 877px;
+    height: 546px;
+    margin: 0 auto;
+    background: url("../images/recruit/talent.png") no-repeat 194px 62px/483px 400px; 
+    background: url("../images/recruit/talent.svg") no-repeat 194px 62px/483px 400px; 
+}
+.rcrt_talent li:nth-child(1), 
+.rcrt_talent li:nth-child(2), 
+.rcrt_talent li:nth-child(3) {
+    position: absolute;
+    left: 0;
+    width: 174px;
+    text-align: center;
+}
+.rcrt_talent li:nth-child(4), 
+.rcrt_talent li:nth-child(5), 
+.rcrt_talent li:nth-child(6) {
+    position: absolute;
+    right: 0;
+    width: 181px;
+    text-align: center;
+} 
+.rcrt_talent li:nth-child(2),
+.rcrt_talent li:nth-child(5) {
+    top: 168px;
+}
+.rcrt_talent li:nth-child(3),
+.rcrt_talent li:nth-child(6) {
+    top: 357px;
+}
+.rcrt_talent li .sub_p {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* 인재채용 > 복지제도 */
+.rcrt_welfare li + li {
+  margin-top: 33px;
+}
+.rcrt_welfare li .img_guide {
+    position: relative;
+    max-height: 219px;
+    max-width: 330px;
+    width: 31.428571%;
+    float: left;
+    margin-right: 2.857142%;
+}
+.rcrt_welfare li .img_guide::before {
+    content: "";
+    display: block;
+    padding-top: 66.363636%;
+} 
+.rcrt_welfare li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rcrt_welfare li .sub_p {
+    float: left;
+    width: 65.714285%;
+}
+
+
+.rcrt_welfare .sub_p strong {
+    display: block;
+    font-weight: 400;
+    font-size: 22px;
+    font-size: 2.2rem;
+    line-height: 2.181818;
+    white-space: nowrap;
+}
+
+
+
+
+
+/* 인재채용 > 인재육성 */
+.rcrt_develop li {
+    float: left;
+    max-width: 240px;
+    width: 22.857142%;
+}
+.rcrt_develop li + li {
+  margin-left: 2.857142%; /* 30px */
+}
+.rcrt_develop li .img_guide {
+    position: relative;
+    max-height: 210px;
+    max-width: 100%;
+    margin-bottom: 8px;
+}
+.rcrt_develop li .img_guide::before {
+    content: "";
+    display: block;
+    padding-top: 66.666666%;
+} 
+.rcrt_develop li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rcrt_develop .sub_p {
+    text-align: center;
+}
+.rcrt_develop .sub_p strong {
+    display: block;
+    font-weight: 400;
+    font-size: 22px;
+    font-size: 2.2rem;
+    line-height: 2.181818;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
