@@ -3,28 +3,33 @@
 /* css/src/layout_국순당 메인.css */
 
 #wrap {
-  width:95%; min-width:1920px; height:auto; min-height:500px;
-  margin:auto;
-}
+  width : 95%;
+  min-width : 1600px;
+  height : auto;
+  min-height : 500px;
+  margin : auto;
+  }
 
 #wrap > div {
   width:100%;
 }
 
-
-
 /* #headBox =============== */
 #headBox {
- position:relative; z-index: 0;
+ position:relative; 
+ z-index: 0;
  height:150px;
- padding:34px 50px 0; box-sizing: border-box;
+ padding:34px 50px 0; 
+ box-sizing: border-box;
  background-color: rgb(255, 255, 255);
 }
+
   h1 { 
     float: left;
-    width:30px; height:10px;
+    width:30px; 
+    height:10px;
     margin top: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: #rgb(255, 255, 255);
   }
 
 /* #navBox =============== */
@@ -39,23 +44,32 @@
   /* -------- */
   .global_nav {
     position: absolute;
-    top:34px; left:0; right:0; margin:auto;
-    width:850px; height:auto; min-height:80px;
-    padding:5px 10px; box-sizing: border-box;
+    top:34px; 
+    left:0; 
+    right:0; 
+    margin:auto;
+    width:850px; 
+    height:auto; 
+    min-height:80px;
+    padding:5px 10px; 
+    box-sizing: border-box;
     background-color: rgb(255, 255, 255);
   }
     .global_nav ul {
-      width: 100%; height: auto;
+      width: 100%; 
+      height: auto;
     }
     .global_nav li {
-      width:150px; height:70px;
+      width:150px; 
+      height:70px;
       margin-left:20px;
       background-color: rgb(255, 255, 255);
     }
 
   .global_nav a {
     display: block;
-    width: 100%; height: 100%;
+    width: 100%; 
+    height: 100%;
     text-align: center;
     text-transform: uppercase;
     line-height:70px;
@@ -65,29 +79,28 @@
 #adViewBox {
  position: relative;
  height:750px;
- padding-top:28px; box-sizing: border-box;
+ padding-top:28px; 
+ box-sizing: border-box;
  background-color: #ffffff
 }
 
 /* #communityBox =============== */
 #communityBox {
-height:auto; min-height:800px;
-padding-top:60px; box-sizing: border-box;
-background-color: rgba(255, 160, 176);
+height:auto; 
+min-height:800px;
+padding-top:60px; 
+box-sizing: border-box;
+background-color: #ffffff
 }
 
 /* #miniAdBox =============== */
 #miniAdBox {
-height:auto; min-height:400px;
+height:auto; 
+min-height:400px;
 margin-bottom: 80px;
-padding:40px; box-sizing: border-box;
+padding:40px; 
+box-sizing: border-box;
 background-color: rgb(255, 255, 255);
-}
-
-.mini_ad_outer {
- width:100%; max-width: 1500px; height:300px;
- margin:auto;
- background-color: rgb(255, 158, 119);
 }
 
 /* #footBox =============== */
@@ -96,8 +109,10 @@ height:auto;
 padding:22px 0;
 background-color: rgb(255, 187, 0);
 }
+
 .foot_con_area{
- width: 1300px; height: 140px;
+ width: 1300px; 
+ height: 140px;
  margin: auto;
  background-color: rgb(255, 187, 0);
 }
