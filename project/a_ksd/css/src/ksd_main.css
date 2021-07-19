@@ -3,11 +3,17 @@
 /* css/src/layout_국순당 메인.css */
 
 #wrap {
-  width : 95%;
+  width : 100%;
   min-width : 1600px;
   height : auto;
   min-height : 500px;
   margin : auto;
+  font-family: 'NanumBarunGothic',"돋움",'Roboto', sans-serif;
+  color: #333;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  box-sizing: border-box;
   }
 
 #wrap > div {
@@ -16,41 +22,44 @@
 
 /* #headBox =============== */
 #headBox {
- position:relative; 
- z-index: 0;
- height:150px;
- padding:34px 50px 0; 
- box-sizing: border-box;
- background-color: rgb(255, 255, 255);
-}
-
-  h1 { 
-    float: left;
-    width:30px; 
-    height:10px;
-    margin top: 10px;
-    background-color: #rgb(255, 255, 255);
-  }
-
-/* #navBox =============== */
-.navbox { 
+  position:relative; 
+  z-index: 0;
+  height:150px;
+  padding:34px 50px 0; 
   box-sizing: border-box;
-    width: 33.333333%;
-    text-align: center;
-    line-height: 27px;
-    height: 100%;
+  background-color: rgb(255, 255, 255);
+ }
+ 
+ h1 { 
+   float: left;
+   width:30px; 
+   height:10px;
+   max-width:200px; 
+   max-height:350px;
+   margin-top: 5px;
+   background-color: rgb(255, 255, 255);
+ }
+
+/* #navBox=============== */
+#navBox {
+ float:right;
+ top:100px; 
+ margin-right:75px;
+ font-family: 'NanumBarunGothic',"돋움",'Roboto', sans-serif;
+ color: #333;
+ font-size: 14px;
 }
 
-  /* -------- */
+/* -------- */
   .global_nav {
     position: absolute;
-    top:34px; 
+    top:100px; 
     left:0; 
     right:0; 
     margin:auto;
     width:850px; 
     height:auto; 
-    min-height:80px;
+    min-height:70px;
     padding:5px 10px; 
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
@@ -63,17 +72,17 @@
       width:150px; 
       height:70px;
       margin-left:20px;
-      background-color: rgb(255, 255, 255);
     }
-
-  .global_nav a {
-    display: block;
-    width: 100%; 
-    height: 100%;
-    text-align: center;
-    text-transform: uppercase;
-    line-height:70px;
   }
+
+/* #ViewBox =============== */
+#ViewBox {
+  position: relative;
+  height:750px;
+  padding-top:28px; 
+  box-sizing: border-box;
+  background-color: #ffffff
+}
 
 /* #adViewBox =============== */
 #adViewBox {
@@ -84,11 +93,26 @@
  background-color: #ffffff
 }
 
+/* #recommendedConttentBox ============= */
+#recommendedConttentBox {
+  position: absolute;
+  top:100px; 
+  left:0; 
+  right:0; 
+  margin:auto;
+  width:850px; 
+  height:auto; 
+  box-sizing: border-box;
+  font-family: 'NanumBarunGothic',"돋움",'Roboto', sans-serif;
+  color: #333;
+  font-size: 15px;
+}
+
 /* #communityBox =============== */
 #communityBox {
 height:auto; 
-min-height:800px;
-padding-top:60px; 
+max-width: 2000px; 
+max-height: 1000px;
 box-sizing: border-box;
 background-color: #ffffff
 }
