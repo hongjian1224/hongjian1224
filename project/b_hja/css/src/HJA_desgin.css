@@ -1,6 +1,6 @@
-/* css/src/ksd_main.css */
+/* css/src/HJA_desgin.css */
 
-/* css/src/layout_국순당 메인.css */
+/* css/src/layout_HJA design.css */
 
 #wrap {
   width : 100%;
@@ -100,26 +100,4 @@ max-width: 2000px;
 max-height: 1000px;
 box-sizing: border-box;
 background-color: #ffffff
-}
-
-/* #miniAdBox =============== */
-#miniAdBox {
-padding:100px; 
-margin-top: 100px;
-box-sizing: border-box;
-background-color: rgb(255, 255, 255);
-}
-
-/* #footBox =============== */
-#footBox {
-margin:auto;
-padding:22px 0;
-background-color: rgb(255, 187, 0);
-}
-
-.foot_con_area{
- width: 1300px; 
- height: 140px;
- margin: auto;
- background-color: rgb(255, 187, 0);
 }

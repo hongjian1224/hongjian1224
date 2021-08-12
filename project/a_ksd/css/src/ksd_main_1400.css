@@ -1,27 +1,27 @@
-/* css/src/ksd_main_mobile.css */
+/* css/src/ksd_main_1400.css */
 
-/* css/src/layout_국순당 메인 모바일.css */
+/* css/src/layout_국순당 메인 1400.css */
 
 #wrap {
     width : 100%;
-    min-width : 320px;
+    min-width : 1400px;
     height : auto;
-    min-height : 200px;
+    min-height : 300px;
     margin : auto;
     font-family: 'NanumBarunGothic',"돋움",'Roboto', sans-serif;
     color: #333;
-    font-size: 10px;
+    font-size: 13px;
     font-size: 1.4rem;
     line-height: 1.5;
     box-sizing: border-box;
     }
   
-#wrap > div {
+  #wrap > div {
     width:100%;
   }
   
-/* #headBox =============== */
-#headBox {
+  /* #headBox =============== */
+  #headBox {
     position:relative; 
     z-index: 0;
     height:150px;
@@ -31,7 +31,11 @@
    }
    
    h1 { 
-     margin: auto;
+     float: left;
+     width:30px; 
+     height:10px;
+     max-width:200px; 
+     max-height:350px;
      margin-top: 5px;
      background-color: rgb(255, 255, 255);
    }
@@ -39,13 +43,38 @@
   /* #navBox=============== */
   #navBox {
    float:right;
-   top:50px; 
-   margin-right:35px;
+   top:100px; 
+   margin-right:75px;
    font-family: 'NanumBarunGothic',"돋움",'Roboto', sans-serif;
    color: #333;
-   font-size: 10px;
+   font-size: 14px;
   }
-
+  
+  /* -------- */
+    .global_nav {
+      position: absolute;
+      top:100px; 
+      left:0; 
+      right:0; 
+      margin:auto;
+      width:850px; 
+      height:auto; 
+      min-height:70px;
+      padding:5px 10px; 
+      box-sizing: border-box;
+      background-color: rgb(255, 255, 255);
+    }
+      .global_nav ul {
+        width: 100%; 
+        height: auto;
+      }
+      .global_nav li {
+        width:150px; 
+        height:70px;
+        margin-left:20px;
+      }
+    }
+  
   /* #ViewBox =============== */
   #ViewBox {
     position: relative;
@@ -66,17 +95,16 @@
   
   /* #recommendedConttentBox ============= */
   #recommendedConttentBox {
-    position: absolute;
+    min-height:400px;
+    margin-bottom: 80px;
+    padding:40px; 
     top:100px; 
-    left:0; 
-    right:0; 
     margin:auto;
-    width:850px; 
-    height:auto; 
-    box-sizing: border-box;
+    width:55px; height: 55px;
     font-family: 'NanumBarunGothic',"돋움",'Roboto', sans-serif;
     color: #333;
     font-size: 15px;
+    float: right;
   }
   
   /* #communityBox =============== */
